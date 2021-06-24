@@ -1,0 +1,143 @@
+:root {
+  --lighterpurple: #A320EC;
+  --purple: #743ad5;
+  --lightgreen: #49CE14;
+  --darkgreen: #286F0B;
+  --lightblue: #33CCFF;
+  --blue: #0078A2;
+  --darkblue: #0000FF;
+  --darkerblue: #00004C;
+  --light-grey: #f6f6f6;
+  --grey: #ddd;
+
+  --red: #fc3f3f;
+  --lightred: #ed1515;
+}
+
+/** Custom fonts **/
+@font-face {
+  font-family: pineapple;
+  src: url('../Assets/Fonts/pineapple/PineappleDemo.ttf');
+}
+
+@font-face {
+  font-family: lato;
+  src: url('../Assets/Fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: lato-bold;
+  src: url('../Assets/Fonts/Lato/Lato-Bold.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth !important;
+}
+
+body {
+  margin: auto;
+  font-family: lato;
+}
+
+h1, h2, h3 {
+  font-family: lato-bold;
+}
+
+h1 {
+  font-size: 25px;
+  background: -webkit-linear-gradient(var(--blue), var(--lightblue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 20px;
+  background: -webkit-linear-gradient(var(--darkerblue), var(--darkblue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  font-size: 18px;
+  background: -webkit-linear-gradient(var(--darkgreen), var(--lightgreen));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content {
+  padding-left: 140px;
+  padding-right: 140px;
+  margin-top: 100px;
+  overflow: visible;
+}
+
+ul {
+  list-style-type: square;
+}
+
+a {
+  color: var(--lighterpurple);
+  text-decoration: underline dashed;
+}
+
+a:hover {
+  color: var(--purple);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/** Reposition anchor tags above linked content **/
+a.anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 5px grey;
+  background-image: linear-gradient(to top, grey, black);
+}
+
+@media screen and (max-width: 720px) {
+  .content {
+    margin-top: 240px;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1300px) {
+  .content {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 1200px) {
+  .content {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 840px) {
+  .content {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
