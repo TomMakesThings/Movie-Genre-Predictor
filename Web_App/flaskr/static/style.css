@@ -1,0 +1,115 @@
+body {
+    background-image: url(bgnotitle.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    height: 100%;
+    margin: 36px;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-template-rows: 50px 210px 50px 160px;
+    grid-auto-rows: 50px;
+    justify-content: center !important;
+    text-align: center;
+    color: white;
+}
+
+.header {
+    grid-column: 1 / -1;
+    color: rgb(127, 12, 44);
+    text-shadow: 1px 1px #ff91e2;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600 !important;
+}
+@media screen and (min-width:1215px) {
+    .header {
+        padding-top: 0px !important;
+        font-size: 45px;
+        padding-bottom: 50px;
+    }
+}
+@media screen and (min-width:737px) {
+    .header {
+        padding-top: 16px;
+        font-size: 45px;
+    }
+}
+@media screen and (max-width:736px) {
+    .header {
+        padding-top: 5%;
+        font-size: 30px;
+    }
+}
+
+.textbox {
+    grid-column: 1 / -1;
+    padding-top: 10px;
+    color: white;
+    text-shadow: 0.3px 0.3px rgb(67, 67, 67);
+    font-size: 30px;
+
+    
+}
+form {
+    width: 100%;
+    height: 100%;
+   
+}
+.inputbox {
+    width: 50%;
+    height: 30% ;
+    background-color: rgba(255, 255, 255, 0.908);
+    border-radius: 15px;
+    border-color: rgb(203, 138, 203);
+    margin-bottom: 6px;
+    color: rgb(152, 58, 114);
+}
+
+.button {
+    background-color: #ffffff; /* Green */
+    color: rgb(152, 58, 114);
+    border: rgb(203, 138, 203);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    justify-self: center;
+  }
+
+
+.desc {
+    grid-column: 1/-1;
+    background-color: rgba(253, 253, 253, 0.95);
+    color: rgb(152, 58, 114);
+    font-size: 16px;
+    font-style: italic;
+    border-radius: 15px;
+}
+
+.preds {
+    grid-column: 1/-1;
+    border-color: rgb(203, 138, 203);
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+
+}
+.inpreds {
+    display: inline-block;
+    margin: 16px;
+}
+
+p {
+    background-color: rgba(253, 253, 253, 0.73);
+    color: rgb(152, 58, 114);
+    border-radius: 15px;
+}

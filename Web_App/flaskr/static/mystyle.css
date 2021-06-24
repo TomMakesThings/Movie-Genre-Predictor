@@ -1,0 +1,149 @@
+/* Import special font */
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Overall font, background color and padding */
+html {
+    font-family: 'Open Sans', sans-serif;
+    background: #eee;
+    padding: 1rem;
+    height: 100%;
+}
+
+
+/*
+1. This is to make sure footer always at the bottom of the page
+2. The footer is set at a fixed height of 120px as we know that the height is fixed
+ */
+.content {
+    min-height: calc(100vh - 120px);
+}
+
+
+/*
+1. Table format
+2. A flex container expands items to fill available free space or shrinks them to prevent overflow in a row
+ */
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+
+/* Align h1 to center and change its color */
+h1 {
+    color: #054ce6;
+    text-align: center;
+}
+
+
+/* Align h2 to center */
+h2 {
+    text-align: center;
+}
+
+
+/* Align h3 to center */
+h3 {
+    text-align: center
+}
+
+
+/* Gif image property */
+.image {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Ensure input message and submit button occupy 95% of the column */
+input, button {
+    width: 95%;
+}
+
+
+/* Input form format */
+form {
+    text-align: center;
+}
+
+input[type=text] {
+    font-size: 1em;
+    text-align: left;
+    padding: 2% 3%;
+    box-sizing: border-box;
+    border: solid transparent;
+    outline: none;
+}
+
+
+/* Submit button format */
+button {
+    margin: auto;
+    font-size: 1em;
+    background-color: #FCCA03;
+    border: none;
+    color: white;
+    padding: 1em 2em;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+
+/* Output header */
+.outputHeader {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+
+/* Message output */
+blockquote {
+    font-family: 'Special Elite';
+    font-weight: 100;
+    font-size: 1.5rem;
+    /*color:#054ce6;*/
+    text-align: center;
+    line-height: 1.4;
+    margin: 0 5%;
+}
+
+blockquote:before {
+    content: '“';
+}
+
+blockquote:after {
+    content: '”';
+}
+
+
+/* Sentiment and Score output */
+.badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    background: #054ce6;
+    color: white;
+    font-weight: 600;
+}
+
+.Positive {
+    background: #3cc73e; /* Set the background as green if negative sentiment */
+}
+
+.Negative {
+    background: #f51848; /* Set the background as red if negative sentiment */
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{#Link to css file.#}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{#    Web page title#}
+    <title>Movie Genre Prediction</title>
+</head>
+
+<body>
+{#    Put all website content in one container class with css grid rows.#}
+    <div class="container">
+{#        First row is the webpage header.#}
+        <div class="header">Movie Genre Prediction</div>
+{#        Second row is the form to process the description.#}
+        <div class="textbox">
+            Enter your movie description here: 
+            <br>
+{#            Create a form with text input and submit button#}
+            <form method="post">
+                <label for="message"></label>
+                <textarea id="message" name="message" class="inputbox" required></textarea>
+               <br>
+               <button class="button">Predict</button>
+            </form>
+        </div>
+        {% block content %}
+        {% endblock  %}
+    </div>
+    
+</body>

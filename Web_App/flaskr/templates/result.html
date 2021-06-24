@@ -1,0 +1,19 @@
+{#Extend the content from the base.html file.#}
+{% extends "base.html" %}
+
+{% block content %}
+{#   Div block to contain the input movie description. #}
+    <div class="desc"> {{ message }}</div>
+{#   Div block to contain the genre predictions. #}
+    <div class="preds">
+    {#    Iterate through all the predictions and show genre name and score. #}
+    {% for item in genre %}
+        <div class="inpreds">
+            <p> Predicted Genre </p>
+            <div class="button"> {{ item }} </div>
+            <p> Score </p>
+            <div class="button">{{ score[loop.index0]}}</div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock  %}
