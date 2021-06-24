@@ -363,4 +363,4 @@ dependencies:
     - torchaudio==0.8.1
     - torchtext==0.9.1
     - torchvision==0.9.1+cu102
-prefix: C:\Users\redds\anaconda3\envs\NLP
+prefix: C:\Users\tommakesthings\anaconda3\envs\NLP
