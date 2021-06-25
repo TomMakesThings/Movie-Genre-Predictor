@@ -10,8 +10,8 @@
   --light-grey: #f6f6f6;
   --grey: #ddd;
 
-  --red: #fc3f3f;
-  --lightred: #ed1515;
+  --lightred: #fc3f3f;
+  --red: #ed1515;
 }
 
 /** Custom fonts **/
@@ -30,6 +30,11 @@
   src: url('../Assets/Fonts/Lato/Lato-Bold.ttf');
 }
 
+@font-face {
+  font-family: riemann-theatre;
+  src: url('../Assets/Fonts/daily-mix-4-font/DailyMix4-PenE.ttf');
+}
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth !important;
@@ -41,7 +46,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: lato-bold;
+  font-family: riemann-theatre;
 }
 
 h1 {
