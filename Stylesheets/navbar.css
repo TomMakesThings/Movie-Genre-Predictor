@@ -1,16 +1,31 @@
-#profilepic {
-  max-width: 50px;
-  max-height: 50px;
-  float: left;
+.profilepic {
+  width: 50px;
+  height: 50px;
 	border-radius: 50%;
+  margin-top: 10px;
 }
 
-#username {
-  font-size: 25px;
+.other-profile:hover, .navtext:hover, #header-tom:hover {
+  animation: MoveUpDown 1s linear infinite;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(2px);
+  }
 }
 
 .header {
-  font-family: riemann-theatre;
+  font-family: hollywood-capital;
   overflow: visible;
   position: fixed;
   top: 0px;
@@ -24,53 +39,76 @@
 .header a {
   float: left;
   color: white;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-decoration: none;
   line-height: 50px;
   white-space: nowrap;
 }
 
-#header-left a {
+#username {
+  font-size: 25px;
+  text-align: center;
+}
+
+#header-top {
+  width: 100%;
+  background-color: #1f1f1f;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+#header-tom, #header-others {
+  float: left;
+}
+
+#header-top a {
+  float: none;
   font-size: 22px;
+  font-family: pineapple;
+  vertical-align: middle;
 }
 
 #header-center a {
   font-size: 30px;
+  padding-left: 30px;
 }
 
 .header-right a {
   font-size: min(2vw, 18px);
 }
 
-@keyframes rotation {
-  50% {
-    transform: rotate(0.5deg);
-  }
-
-  100% {
-    transform: rotate(0.5deg);
-  }
-}
-
-#header-left {
-  float: left;
-  font-family: pineapple;
-}
-
 .header-right, #header-github {
   float: right;
 }
 
-#header-left:hover img, .navtext:hover {
+#header-top:hover img, .navtext:hover {
   transition: 0.3s;
-  text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
-  -webkit-filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.2));
-  filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.2));
+  text-shadow: -3px 3px black;
   animation-duration: 1.5s;
-  animation-name: rotation;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-out;
+}
+
+#clapper {
+  height: 50px;
+  float: left;
+  margin-left: -30px;
+  padding: 5px;
+}
+
+#clapper:hover {
+  -webkit-filter: drop-shadow(-3px 3px 0px black);
+  filter: drop-shadow(-3px 3px 0px black);
+  animation: Rotation 1s linear;
+}
+
+@keyframes Rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .nav-dropdown {
@@ -120,14 +158,14 @@
 }
 
 @media screen and (max-width: 750px) {
-  #header-left, #header-center, .header-right {
+  #header-top, #header-center, .header-right {
     width: 100%;
     display: flex;
     justify-content: center;
     text-align: center;
   }
 
-  #header-left a, #header-center a {
+  #header-center a {
     font-size: 26px;
     font-size: min(5vw, 30px);
   }

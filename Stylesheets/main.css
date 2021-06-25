@@ -8,8 +8,8 @@
   --darkblue: #0000FF;
   --darkerblue: #00004C;
   --light-grey: #f6f6f6;
-  --grey: #ddd;
 
+  --grey: #404040;
   --lightred: #fc3f3f;
   --red: #ed1515;
 }
@@ -21,18 +21,23 @@
 }
 
 @font-face {
-  font-family: lato;
-  src: url('../Assets/Fonts/Lato/Lato-Regular.ttf');
-}
-
-@font-face {
-  font-family: lato-bold;
-  src: url('../Assets/Fonts/Lato/Lato-Bold.ttf');
-}
-
-@font-face {
-  font-family: riemann-theatre;
+  font-family: daily-mix;
   src: url('../Assets/Fonts/daily-mix-4-font/DailyMix4-PenE.ttf');
+}
+
+@font-face {
+  font-family: hollywood-capital;
+  src: url('../Assets/Fonts/hollywood-capital/HollywoodCapital.ttf');
+}
+
+@font-face {
+  font-family: hollywood-hills;
+  src: url('../Assets/Fonts/hollywood-hills/HollywoodHills.ttf');
+}
+
+@font-face {
+  font-family: cinematic-language;
+  src: url('../Assets/Fonts/cinematic-language/Cinematic-Language.ttf');
 }
 
 * {
@@ -46,14 +51,12 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: riemann-theatre;
+  font-family: hollywood-hills;
 }
 
 h1 {
   font-size: 25px;
-  background: -webkit-linear-gradient(var(--blue), var(--lightblue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--grey);
 }
 
 h2 {
@@ -73,7 +76,7 @@ h3 {
 .content {
   padding-left: 140px;
   padding-right: 140px;
-  margin-top: 100px;
+  margin-top: 160px;
   overflow: visible;
 }
 
@@ -115,7 +118,7 @@ a.anchor {
 
 @media screen and (max-width: 720px) {
   .content {
-    margin-top: 240px;
+    margin-top: 200px;
   }
 }
 

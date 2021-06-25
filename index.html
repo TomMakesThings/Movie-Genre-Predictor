@@ -21,20 +21,27 @@
 <body>
 
 <div class="header">
-	<div id="header-left" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);">
-		<a href="https://github.com/TomMakesThings"><img src="Assets/Images/Profile.png" alt="GitHub profile picture" id="profilepic"></a>
-		<a href="https://tommakesthings.github.io/" id="username" class="navtext">TomMakesThings</a>
+	<div id="header-top" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);">
+		<div id="header-tom">
+			<a href="https://github.com/TomMakesThings" target="_blank"><img src="Assets/Images/Profile.png" alt="GitHub profile picture" class="profilepic" id="tomprofile" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);"></a>
+			<a href="https://tommakesthings.github.io/" target="_blank" id="username" class="navtext">TomMakesThings +</a>
+		</div>
+		<div id="header-others">
+			<a href="https://github.com/rogerchenrc" target="_blank"><img src="https://avatars.githubusercontent.com/u/56882421?v=4" alt="GitHub profile picture" class="profilepic other-profile"></a>
+			<a href="https://github.com/laviniafr" target="_blank"><img src="https://avatars.githubusercontent.com/u/66881011?v=4" alt="GitHub profile picture" class="profilepic other-profile"></a>
+		</div>
 	</div>
 	<div id="header-center">
-		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" class="navtext">IMDb Movie Genre Predictor</a>
+		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank" class="navtext">IMDb Movie Genre Predictor</a>
+		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank"><img src="Assets/Images/Clapper.png" alt="Film clapper" id="clapper"></a>
 	</div>
 	<div class="header-right">
 		<a href="#about" class="navtext">About</a>
 		<div class="nav-dropdown">
 			<a href="#background" class="navtext">Background</a>
 			<div class="nav-dropdown-content">
-				<p><a href="#genes">Genes and Proteins</a></p>
-				<p><a href="#scrnaseq">Single Cell RNA-Sequencing</a></p>
+				<p><a href="#genes">TBC</a></p>
+				<p><a href="#scrnaseq">TBC</a></p>
 			</div>
 		</div>
 	</div>
@@ -44,13 +51,28 @@
 	<div>
 		<a name="about" class="anchor"></a>
   	<h1>About</h1>
-		<p>This is natural language processing group project by TomMakesThings, rogerchenrc and laviniafr.
-			This involved building a multi-label classifier trained on a dataset of movie descriptions to predict best matched genres.
-			When given a sample, one to three genres are outputted with a percentage corresponding to its relevance.
-			The model was then saved to file and hosted on a web server.
+		<p>This site demonstrates my individual work, as well as group contributions to a third year natural language processing (NLP) project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
+			The task was to build a multi-label classifier and train it on a dataset of movie descriptions to predict best matched genres.
+		 	A trained model can then be saved to file and deployed on our custom built web server.
 		</p>
-		<p>When developing and evaluating the model, we decided to use the IMDb movies extensive dataset from Kaggle [1]. This dataset has 84983 samples which provides a sufficient number to split into training, validation, and testing. Each film has many attributes, although for this project we will focus on the original title, description and list of one to three genres that can be used as training labels. Across all samples, there are 25 unique genres.
+	</div>
+
+	<br>
+
+	<div>
+		<h1>Dataset</h1>
+		<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
+			This dataset contains 84,983 samples providing a sufficient number to train our classifier.
+			Each film has many attributes, although we focused on the original title, description and list of one to three genres that can be used as training labels.
+			Some pre-processing was therefore required to remove samples missing this information and to remove other attributes.
 		</p>
+	</div>
+
+	<br>
+
+	<div>
+		<h1>Classifier</h1>
+		<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
 	</div>
 
 	<br>
