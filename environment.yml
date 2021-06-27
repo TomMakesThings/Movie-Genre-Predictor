@@ -1,4 +1,4 @@
-name: NLP
+name: MoviePredictor
 channels:
   - conda-forge
   - defaults
