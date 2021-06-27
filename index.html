@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="Stylesheets\dataset.css">
 	<link rel="stylesheet" href="Stylesheets\code.css">
 	<link rel="stylesheet" href="Stylesheets\graphs.css">
+	<link rel="stylesheet" href="Stylesheets\topicmodelling.css">
 	<link rel="stylesheet" href="Stylesheets\footer.css">
 </head>
 
@@ -38,13 +39,8 @@
 		<a href="#about" class="navtext">About</a>
 		<a href="#data" class="navtext">Data</a>
 		<a href="#classifier" class="navtext">Classifier</a>
-		<div class="nav-dropdown">
-			<a href="#topicmodelling" class="navtext">Topic Modelling</a>
-			<div class="nav-dropdown-content">
-				<p><a href="#genes">LDiA</a></p>
-				<p><a href="#scrnaseq">LSA</a></p>
-			</div>
-		</div>
+		<a href="#topicmodelling" class="navtext">Topic Modelling</a>
+		<a href="#code" class="navtext">Running the Code</a>
 		<a href="#contributions" class="navtext">Contributions</a>
 	</div>
 </div>
@@ -106,18 +102,73 @@
 			<iframe src="Assets/Graphs/Gensim_LDiA_7_Topics.html" class="graph-html"></iframe>
 		</div>
 
-		<p><img src="Assets/Images/LDiA_Coherence.png"></p>
+		<p>In </p>
+
+		<div class="graph">
+			<iframe src="Assets/Graphs/tSNE_LDiA_7_Topics.html" class="graph-html"></iframe>
+		</div>
+
+		<p><img src="Assets/Images/LDiA_Coherence.png" class="coherence-graph centered"></p>
+
+		<div class="graph">
+			<iframe src="Assets/Graphs/tSNE_LDiA_47_Topics.html" class="graph-html"></iframe>
+		</div>
 
 		<a name="scrnaseq" class="anchor"></a>
 		<h2>Latent Semantic Analysis</h2>
 		<p>Si</p>
 
-		<p><img src="Assets/Images/LSA_Coherence.png"></p>
+		<div class="graph">
+			<iframe src="Assets/Graphs/tSNE_LSA_7_Topics.html" class="graph-html"></iframe>
+		</div>
+
+		<p><img src="Assets/Images/LSA_Coherence.png" class="coherence-graph centered"></p>
+
+		<div class="graph">
+			<iframe src="Assets/Graphs/tSNE_LSA_2_Topics.html" class="graph-html"></iframe>
+		</div>
 
 		<h2>Topic Modelling Code<h2>
 		<div class="notebook">
 			<iframe src="Notebooks/LDiA-and-LSA-Topic-Modelling.html" class="notebook-html"></iframe>
 		</div>
+
+	</div>
+
+	<br>
+
+	<div>
+		<a name="code" class="anchor"></a>
+		<h1>Running the Code</h1>
+		<p>The full code has been uploaded to <a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank">GitHub</a>.
+			To download the repository, <a href="https://github.com/TomMakesThings/Movie-Genre-Predictor/archive/refs/heads/main.zip">click here.</a>
+		</p>
+		<p>To ensure all team members could execute the code during development, it was created using a <a href="https://www.anaconda.com/products/individual" target="_blank">conda environment</a>.
+			This environment has been saved as a YAML file, environment.yml, and is included in the repository.
+			To recreate this environment, open the Anaconda prompt and enter the command below, where environment.yml is the file path of the enviroment file.
+		</p>
+		<p>conda env create -f environment.yml</p>
+
+		<br>
+
+		<h2>Web application</h2>
+		<p>To run the classifier web application:</p>
+		<ol>
+			<li>conda activate MoviePredictor</li>
+			<li>Navigate to Web_App/flaskr</li>
+			<li>Run command python main.py</li>
+		</ol>
+
+		<br>
+
+		<video controls>
+			<source src="Assets/Videos/Site-Launch.mov" type="video/mp4">
+				Your browser does not support the video tag.
+		</video>
+
+		<br>
+
+		<h2>Jupyter notebooks</h2>
 
 	</div>
 

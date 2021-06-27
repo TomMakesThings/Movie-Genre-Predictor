@@ -48,16 +48,11 @@ h1 {
 
 h2 {
   font-size: 20px;
-  background: -webkit-linear-gradient(var(--darkerblue), var(--darkblue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: blue;
 }
 
 h3 {
   font-size: 18px;
-  background: -webkit-linear-gradient(var(--darkgreen), var(--lightgreen));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .content {
@@ -102,12 +97,10 @@ video {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
 }
 
 ::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 5px grey;
-  background-image: linear-gradient(to top, grey, black);
+  background-image: linear-gradient(to top, black, black);
 }
 
 /* WebKit and Blink browsers text selection */
