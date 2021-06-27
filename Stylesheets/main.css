@@ -1,14 +1,11 @@
 :root {
-  --lighterpurple: #A320EC;
-  --purple: #743ad5;
-  --lightgreen: #49CE14;
-  --darkgreen: #286F0B;
   --lightblue: #33CCFF;
   --blue: #0078A2;
   --darkblue: #0000FF;
   --darkerblue: #00004C;
   --light-grey: #f6f6f6;
 
+  --yellow: #ffe605;
   --grey: #404040;
   --lightred: #fc3f3f;
   --red: #ed1515;
@@ -112,6 +109,17 @@ video {
   box-shadow: inset 0 0 5px grey;
   background-image: linear-gradient(to top, grey, black);
 }
+
+/* WebKit and Blink browsers text selection */
+::selection {
+  background: var(--yellow);
+}
+
+/* Gecko Browsers text selection */
+::-moz-selection {
+  background: var(--yellow);
+}
+
 
 @media screen and (max-width: 750px) {
   .content {

@@ -1,0 +1,13 @@
+.centered {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.dataset {
+  max-width: 600px;
+}
+
+.label-distributions {
+  
+}

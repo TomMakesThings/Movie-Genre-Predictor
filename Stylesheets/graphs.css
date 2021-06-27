@@ -1,0 +1,39 @@
+.graph {
+  width: 100%;
+  max-width: 1350px;
+  height: 800px;
+  overflow: visible;
+}
+
+.graph-html {
+  width: 110% !important;
+  height: 110% !important;
+  border: none;
+  overflow: visible;
+  display: block;
+  transform: scale(0.9);
+}
+
+@media screen and (min-width: 880px) and (max-width: 1050px) {
+  .graph-html {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .graph {
+    height: 440px;
+    width: 635px;
+  }
+
+  .graph-html {
+    transform: scale(0.7);
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .graph {
+    height: 330px;
+    width: 470px;
+  }
+}

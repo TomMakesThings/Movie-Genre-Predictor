@@ -10,11 +10,9 @@
 	<link rel="stylesheet" href="Stylesheets\main.css">
 	<link rel="stylesheet" href="Stylesheets\navbar.css">
 	<link rel="stylesheet" href="Stylesheets\about.css">
-	<link rel="stylesheet" href="Stylesheets\datasets.css">
-	<link rel="stylesheet" href="Stylesheets\clustering.css">
-	<link rel="stylesheet" href="Stylesheets\tda.css">
+	<link rel="stylesheet" href="Stylesheets\dataset.css">
 	<link rel="stylesheet" href="Stylesheets\code.css">
-	<link rel="stylesheet" href="Stylesheets\graph_finder.css">
+	<link rel="stylesheet" href="Stylesheets\graphs.css">
 	<link rel="stylesheet" href="Stylesheets\footer.css">
 </head>
 
@@ -38,13 +36,16 @@
 	</div>
 	<div class="header-right">
 		<a href="#about" class="navtext">About</a>
+		<a href="#data" class="navtext">Data</a>
+		<a href="#classifier" class="navtext">Classifier</a>
 		<div class="nav-dropdown">
-			<a href="#background" class="navtext">Background</a>
+			<a href="#topicmodelling" class="navtext">Topic Modelling</a>
 			<div class="nav-dropdown-content">
-				<p><a href="#genes">TBC</a></p>
-				<p><a href="#scrnaseq">TBC</a></p>
+				<p><a href="#genes">LDiA</a></p>
+				<p><a href="#scrnaseq">LSA</a></p>
 			</div>
 		</div>
+		<a href="#contributions" class="navtext">Contributions</a>
 	</div>
 </div>
 
@@ -53,8 +54,9 @@
 		<a name="about" class="anchor"></a>
   	<h1>About</h1>
 		<p>This site explains a natural language processing (NLP) group project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
-			In this we tested different NLP pre-processing techniques and model architectures to train a multi-label classifier on dataset of movie descriptions to predict the best fitting genre(s).
-		 	The state of the top trained model was then saved to file and deployed on a custom built web server as demonstrated in the video below.
+			In this we tested different NLP techniques and model architectures to create a CI/CD pipeline to train and deploy a multi-label classifier.
+			The classifier was trained on dataset of movie descriptions to predict the top fitting genre(s).
+		 	The state of the best trained model was then saved to file and deployed on a custom built web server as demonstrated in the video below:
 		</p>
 
 		<br>
@@ -69,29 +71,40 @@
 	<br>
 
 	<div>
-		<h1>Dataset</h1>
+		<a name="data" class="anchor"></a>
+		<h1>Data</h1>
 		<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
-			This dataset contains 84,983 samples providing a sufficient number to train our classifier.
-			Each film has many attributes, although we focused on the original title, description and list of one to three genres that can be used as training labels.
-			Some pre-processing was therefore required to remove samples missing this information and to remove other attributes.
+			This dataset contains 84,983 samples providing a sufficient number to train a robust classifier.
+			Although each film has many attributes such as year of release and director, we only required the original title, description and list of one to three genres to use as training labels.
+			Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
 		</p>
+		<p><img class="dataset centered" src="Assets/Images/Dataset.png"></p>
+
+		<p>The dataset was then sampled
+		</p>
+		<p><img class="label-distributions centered" src="Assets/Images/Label-Distributions.png"></p>
 	</div>
 
 	<br>
 
 	<div>
-		<h1>Classifier</h1>
+		<a name="classifier" class="anchor"></a>
+		<h1>Classifier Testing</h1>
 		<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
 	</div>
 
 	<br>
 
-	<div id="background-text">
-		<a name="background" class="anchor"></a>
+	<div>
+		<a name="topicmodelling" class="anchor"></a>
 		<h1>Topic Modelling</h1>
 		<a name="genes" class="anchor"></a>
 		<h2>Latent Dirichlet Allocation (LDiA)</h2>
 		<p>In </p>
+
+		<div class="graph">
+			<iframe src="Assets/Graphs/Gensim_LDiA_7_Topics.html" class="graph-html"></iframe>
+		</div>
 
 		<p><img src="Assets/Images/LDiA_Coherence.png"></p>
 
@@ -101,15 +114,36 @@
 
 		<p><img src="Assets/Images/LSA_Coherence.png"></p>
 
+		<h2>Topic Modelling Code<h2>
+		<div class="notebook">
+			<iframe src="Notebooks/LDiA-and-LSA-Topic-Modelling.html" class="notebook-html"></iframe>
+		</div>
+
 	</div>
+
+	<br>
 
 	<div>
 		<a name="contributions" class="anchor"></a>
 		<h1>Contributions</h1>
+		<h2>Tom</h2>
 		<ul>
-			<li><b>Tom</b> – CI/CD pipeline development, model training, testing and optimization, hosting the selected model on the backend of the web application</li>
-			<li><b>Roger</b> – Backend development of the Flask web application, hosting the app prototype on Heroku, functional testing of the application</li>
-			<li><b>Lavinia</b> – Research of web service hosting options, frontend development of the web application</li>
+			<li>CI/CD pipeline development</li>
+			<li>Model training, testing and optimization</li>
+			<li>Hosting the selected model on the backend of the web application</li>
+			<li>Creation of this site</li>
+		</ul>
+		<h2>Roger</h2>
+		<ul>
+			<li>Backend development of the Flask web application</li>
+			<li>Hosting the app prototype on Heroku</li>
+			<li>Functional testing of the application</li>
+		</ul>
+		<h2>Lavinia</h2>
+		<ul>
+			<li>Research of web service hosting options</li>
+			<li>Frontend development of the web application</li>
+			<li>Creation of video demonstrations</li>
 		</ul>
 	</div>
 
@@ -121,7 +155,7 @@
 
 <div class="footer">
 	<div class="footer-center">
-		<a href="https://github.com/TomMakesThings">&copy; TomMakesThings <script>document.write(new Date().getUTCFullYear());</script></a>
+		<a href="https://github.com/TomMakesThings"><b>&copy; TomMakesThings <script>document.write(new Date().getUTCFullYear());</script></b></a>
 	</div>
 </div>
 
