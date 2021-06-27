@@ -23,8 +23,9 @@
 <div class="header">
 	<div id="header-top" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);">
 		<div id="header-tom">
-			<a href="https://github.com/TomMakesThings" target="_blank"><img src="Assets/Images/Profile.png" alt="GitHub profile picture" class="profilepic" id="tomprofile" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);"></a>
+			<a href="https://tommakesthings.github.io/" target="_blank"><img src="Assets/Images/Profile.png" alt="GitHub profile picture" class="profilepic" id="tomprofile" onmouseover="profileHover(this);" onmouseout="profileUnhover(this);"></a>
 			<a href="https://tommakesthings.github.io/" target="_blank" id="username" class="navtext">TomMakesThings +</a>
+			<a href="https://tommakesthings.github.io/" target="_blank"><p id="hint">(click to see more of my work)</p></a>
 		</div>
 		<div id="header-others">
 			<a href="https://github.com/rogerchenrc" target="_blank"><img src="https://avatars.githubusercontent.com/u/56882421?v=4" alt="GitHub profile picture" class="profilepic other-profile"></a>
@@ -32,7 +33,7 @@
 		</div>
 	</div>
 	<div id="header-center">
-		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank" class="navtext">IMDb Movie Genre Predictor</a>
+		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank" id="sitename" class="navtext">IMDb Movie Genre Predictor</a>
 		<a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank"><img src="Assets/Images/Clapper.png" alt="Film clapper" id="clapper"></a>
 	</div>
 	<div class="header-right">
@@ -51,10 +52,18 @@
 	<div>
 		<a name="about" class="anchor"></a>
   	<h1>About</h1>
-		<p>This site demonstrates my individual work, as well as group contributions to a third year natural language processing (NLP) project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
-			The task was to build a multi-label classifier and train it on a dataset of movie descriptions to predict best matched genres.
-		 	A trained model can then be saved to file and deployed on our custom built web server.
+		<p>This site explains a natural language processing (NLP) group project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
+			In this we tested different NLP pre-processing techniques and model architectures to train a multi-label classifier on dataset of movie descriptions to predict the best fitting genre(s).
+		 	The state of the top trained model was then saved to file and deployed on a custom built web server as demonstrated in the video below.
 		</p>
+
+		<br>
+
+		<video controls>
+		  <source src="Assets/Videos/Site-Demo.mov" type="video/mp4">
+				Your browser does not support the video tag.
+		</video>
+
 	</div>
 
 	<br>
@@ -92,6 +101,16 @@
 
 		<p><img src="Assets/Images/LSA_Coherence.png"></p>
 
+	</div>
+
+	<div>
+		<a name="contributions" class="anchor"></a>
+		<h1>Contributions</h1>
+		<ul>
+			<li><b>Tom</b> – CI/CD pipeline development, model training, testing and optimization, hosting the selected model on the backend of the web application</li>
+			<li><b>Roger</b> – Backend development of the Flask web application, hosting the app prototype on Heroku, functional testing of the application</li>
+			<li><b>Lavinia</b> – Research of web service hosting options, frontend development of the web application</li>
+		</ul>
 	</div>
 
 	<br>

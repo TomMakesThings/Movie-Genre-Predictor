@@ -5,6 +5,11 @@
   margin-top: 10px;
 }
 
+.other-profile {
+  margin-left: -20px;
+  margin-right: 13px;
+}
+
 .other-profile:hover, .navtext:hover, #header-tom:hover {
   animation: MoveUpDown 1s linear infinite;
 }
@@ -25,7 +30,7 @@
 }
 
 .header {
-  font-family: hollywood-capital;
+  font-family: hollywood-hills;
   overflow: visible;
   position: fixed;
   top: 0px;
@@ -51,10 +56,26 @@
   text-align: center;
 }
 
+#header-tom:hover #hint {
+  display: block;
+}
+
+#hint {
+  position: absolute;
+  bottom: -22px;
+  left: 85px;
+  display: none;
+  color: white;
+  font-size: 14px;
+}
+
+#sitename {
+  font-family: hollywood-hills;
+}
+
 #header-top {
   width: 100%;
   background-color: #1f1f1f;
-  padding-left: 20px;
   display: inline-block;
 }
 
@@ -71,7 +92,6 @@
 
 #header-center a {
   font-size: 30px;
-  padding-left: 30px;
 }
 
 .header-right a {
@@ -91,7 +111,7 @@
 #clapper {
   height: 50px;
   float: left;
-  margin-left: -30px;
+  margin-left: -10px;
   padding: 5px;
 }
 
@@ -177,9 +197,4 @@
   .nav-dropdown-content a {
     font-size: min(2.6vw, 14px);
   }
-}
-
-@media screen and (min-width: 750px) and (max-width: 1110px) {
-  #header-center {
-    display: none;
 }

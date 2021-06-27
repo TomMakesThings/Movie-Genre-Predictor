@@ -15,13 +15,16 @@ function scrollFunction() {
   var position = "absolute";
   var top = "0px";
   if (window.innerWidth <= 750) {
-    if (document.body.scrollTop > 140 || document.documentElement.scrollTop > 140) {
+    if (document.body.scrollTop > 130 || document.documentElement.scrollTop > 130) {
       position = "fixed";
-      top = "-140px";
+      top = "-130px";
     }
   }
   else {
-    position = "fixed";
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      position = "fixed";
+      top = "-80px";
+    }
   }
   for (i = 0; i < all_content.length; i++) {
     all_content[i].style.position = position;

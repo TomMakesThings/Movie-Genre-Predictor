@@ -21,23 +21,13 @@
 }
 
 @font-face {
-  font-family: daily-mix;
-  src: url('../Assets/Fonts/daily-mix-4-font/DailyMix4-PenE.ttf');
-}
-
-@font-face {
-  font-family: hollywood-capital;
-  src: url('../Assets/Fonts/hollywood-capital/HollywoodCapital.ttf');
+  font-family: budmo;
+  src: url('../Assets/Fonts/budmo/budmo-jiggler.ttf');
 }
 
 @font-face {
   font-family: hollywood-hills;
   src: url('../Assets/Fonts/hollywood-hills/HollywoodHills.ttf');
-}
-
-@font-face {
-  font-family: cinematic-language;
-  src: url('../Assets/Fonts/cinematic-language/Cinematic-Language.ttf');
 }
 
 * {
@@ -47,11 +37,11 @@
 
 body {
   margin: auto;
-  font-family: lato;
+  font-family: Century Gothic;
 }
 
 h1, h2, h3 {
-  font-family: hollywood-hills;
+  font-family: budmo;
 }
 
 h1 {
@@ -74,8 +64,8 @@ h3 {
 }
 
 .content {
-  padding-left: 140px;
-  padding-right: 140px;
+  padding-left: 200px;
+  padding-right: 200px;
   margin-top: 160px;
   overflow: visible;
 }
@@ -85,13 +75,12 @@ ul {
 }
 
 a {
-  color: var(--lighterpurple);
-  text-decoration: underline dashed;
+  color: black;
+  text-decoration: underline;
 }
 
 a:hover {
-  color: var(--purple);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color: red;
 }
 
 /** Reposition anchor tags above linked content **/
@@ -100,6 +89,14 @@ a.anchor {
   position: relative;
   top: -80px;
   visibility: hidden;
+}
+
+video {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  max-height: 600px;
 }
 
 /* Custom scrollbar */
@@ -116,7 +113,7 @@ a.anchor {
   background-image: linear-gradient(to top, grey, black);
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   .content {
     margin-top: 200px;
   }
@@ -124,22 +121,22 @@ a.anchor {
 
 @media screen and (max-width: 1400px) and (min-width: 1300px) {
   .content {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 160px;
+    padding-right: 160px;
   }
 }
 
 @media screen and (max-width: 1300px) and (min-width: 1200px) {
   .content {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 120px;
+    padding-right: 120px;
   }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 840px) {
   .content {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
 }
 
