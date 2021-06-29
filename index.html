@@ -51,7 +51,7 @@
   	<h1>About</h1>
 		<p>This site explains a natural language processing (NLP) group project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
 			In this we tested different NLP techniques and model architectures to create a CI/CD pipeline to train and deploy a multi-label classifier.
-			The classifier was trained on dataset of movie descriptions to predict the top fitting genre(s).
+			The classifier was trained on dataset of movie descriptions to predict the top fitting genre(s) with 12 possible values including: Drama, Comedy, Action, Crime, Thriller, Romance, Horror, Adventure, Mystery, Family, Fantasy and Sci-Fi.
 		 	The state of the best trained model was then saved to file and deployed on a custom built web server as demonstrated in the video below:
 		</p>
 
@@ -69,24 +69,73 @@
 	<div>
 		<a name="data" class="anchor"></a>
 		<h1>Data</h1>
+		<h2>The Dataset</h2>
 		<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
-			This dataset contains 84,983 samples providing a sufficient number to train a robust classifier.
-			Although each film has many attributes such as year of release and director, we only required the original title, description and list of one to three genres to use as training labels.
-			Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
+			This contains 84,983 samples providing a sufficient number to train a robust classifier.
+			Although each film has many attributes, such as year of release and director, we only required the original title, description and list of genres to use as training labels.
+			Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes. This lead to 2,115 samples being dropped with 83,740 remaining.
 		</p>
 		<p><img class="dataset centered" src="Assets/Images/Dataset.png"></p>
 
-		<p>The dataset was then sampled
+		<br>
+
+		<h2>Analysing the Labels</h2>
+		<p>All films have between one and three genres, each of which can be used as a label during classification.
+			After extracting the genres from each sample, it was discovered that there were 25 unique values.
+			However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
 		</p>
-		<p><img class="label-distributions centered" src="Assets/Images/Label-Distributions.png"></p>
+		<div class="pie" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px;">
+			<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+		</div>
+		<p>As not all genres have enough representative samples, we decided to only keep the top seven.
+			As this can cause problems when training a neural network, it was necessary</p>
+		<div class="pies">
+			<div class="pie">
+				<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
+			</div>
+			<div class="pie">
+				<iframe src="Assets/Graphs/Label_Distribution_Processed.html" class="graph-html"></iframe>
+			</div>
+		</div>
+
+		<br style="clear: both;">
+		<br>
+
+		<p>rherh</p>
+
+		<br>
+
+		<p>As each film has between one and three genres, we decided to perform multi-label classification.
+			This is when the classifer is able to make multiple predictions rather than just one for each sample.
+		</p>
+
+		<br>
+
+		<h2>Analysing the Movie Descriptions</h2>
+		<h3>ScatterText</h3>
+		<div class="graph scattertext">
+			<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+		</div>
+		<div class="graph scattertext">
+			<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+		</div>
+
 	</div>
 
 	<br>
 
 	<div>
 		<a name="classifier" class="anchor"></a>
-		<h1>Classifier Testing</h1>
+		<h1>Classifier</h1>
+		<h2>Testing and Development</h2>
 		<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
+
+		<h2>Pipeline</h2>
+		<h2>Code<h2>
+		<div class="notebook">
+			<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
+		</div>
+
 	</div>
 
 	<br>
@@ -147,16 +196,16 @@
 			This environment has been saved as a YAML file, environment.yml, and is included in the repository.
 			To recreate this environment, open the Anaconda prompt and enter the command below, where environment.yml is the file path of the enviroment file.
 		</p>
-		<p>conda env create -f environment.yml</p>
+		<p><a class="code">conda env create -f environment.yml</a></p>
 
 		<br>
 
 		<h2>Web application</h2>
 		<p>To run the classifier web application:</p>
 		<ol>
-			<li>conda activate MoviePredictor</li>
-			<li>Navigate to Web_App/flaskr</li>
-			<li>Run command python main.py</li>
+			<li><a class="code">conda activate MoviePredictor</a></li>
+			<li>Navigate to <a class="code">Web_App/flaskr</a></li>
+			<li>Run command <a class="code">python main.py</a></li>
 		</ol>
 
 		<br>

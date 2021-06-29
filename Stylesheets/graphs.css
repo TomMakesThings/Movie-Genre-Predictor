@@ -13,9 +13,30 @@
   overflow: hidden;
 }
 
+.scattertext {
+  height: 730px;
+  margin-top: -50px;
+}
+
+.pies {
+  display: block;
+}
+
+.pie {
+  overflow: hidden;
+  height: 500px;
+  margin: -50px -80px -80px -50px;
+  width: 50%;
+  min-width: 400px;
+  float: left;
+  transform: scale(0.8);
+}
+
 @media screen and (max-width: 1300px) and (min-width: 840px) {
   .graph {
     transform: scale(0.7);
+    top: 0;
+    left: 0;
     margin: -120px;
   }
 }

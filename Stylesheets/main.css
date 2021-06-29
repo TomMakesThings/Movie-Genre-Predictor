@@ -1,10 +1,5 @@
 :root {
-  --lightblue: #33CCFF;
-  --blue: #0078A2;
-  --darkblue: #0000FF;
-  --darkerblue: #00004C;
-  --light-grey: #f6f6f6;
-
+  --light-grey: #f5f5f5;
   --yellow: #ffe605;
   --grey: #404040;
   --lightred: #fc3f3f;
@@ -25,6 +20,11 @@
 @font-face {
   font-family: hollywood-hills;
   src: url('../Assets/Fonts/hollywood-hills/HollywoodHills.ttf');
+}
+
+@font-face {
+  font-family: code;
+  src: url('../Assets/Fonts/camingocode/CamingoCode-Regular.ttf');
 }
 
 * {
@@ -97,10 +97,12 @@ video {
 }
 
 ::-webkit-scrollbar-track {
+  background-color: black;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to top, black, black);
+  background-color: white;
+  border-radius: 5px;
 }
 
 /* WebKit and Blink browsers text selection */

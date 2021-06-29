@@ -10,3 +10,15 @@
   border: none;
   overflow: hidden;
 }
+
+.code {
+  font-family: code;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  background-color: var(--light-grey);
+}
+
+.code:hover {
+  color: black;
+}
