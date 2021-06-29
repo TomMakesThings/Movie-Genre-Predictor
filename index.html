@@ -84,8 +84,16 @@
 			After extracting the genres from each sample, it was discovered that there were 25 unique values.
 			However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
 		</p>
-		<div class="pie" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px;">
-			<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+		<div>
+			<div class="pie" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px;">
+				<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+			</div>
+			<p><img src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%; display: none;"></p>
+			<p><img src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+		</div>
+		<div class="video-buttons-small-screen">
+			<button class="circle-button small-screen-button next-button" onclick="aboutVideoChanger(this)"><p>🡰</p></button>
+			<button class="circle-button small-screen-button previous-button" onclick="aboutVideoChanger(this)"><p>🡲</p></button>
 		</div>
 		<p>As not all genres have enough representative samples, we decided to only keep the top seven.
 			As this can cause problems when training a neural network, it was necessary</p>
