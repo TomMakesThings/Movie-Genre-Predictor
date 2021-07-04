@@ -48,15 +48,15 @@
   }
 }
 
-.circle-button {
-  width: 70px;
-  height: 70px;
-  margin: auto;
+.arrow-button {
+  width: 130px;
+  height: 55px;
+  margin: 0px 30px 0px 30px;
   z-index: 50;
   border: none;
   text-decoration: none;
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   background-color: white;
@@ -67,8 +67,8 @@
   margin-left: 10px;
 }
 
-.video-buttons-small-screen {
-  margin: auto;
+.graph-arrows {
+  margin-top: -700px;
   text-align: center;
   display: inline-block;
   width: 100%;

@@ -85,15 +85,17 @@
 			However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
 		</p>
 		<div>
-			<div class="pie" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px;">
+			<div class="pie" id="label-pie-raw" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px; margin-left: 15px;">
 				<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
 			</div>
-			<p><img src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%; display: none;"></p>
-			<p><img src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+			<div align="center">
+				<p><img id="movies-per-genre" src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%; display: none;"></p>
+				<p><img id="genres-per-movie" src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+			</div>
 		</div>
-		<div class="video-buttons-small-screen">
-			<button class="circle-button small-screen-button next-button" onclick="aboutVideoChanger(this)"><p>🡰</p></button>
-			<button class="circle-button small-screen-button previous-button" onclick="aboutVideoChanger(this)"><p>🡲</p></button>
+		<div class="graph-arrows">
+			<button class="arrow-button next-button" onclick="labelGraphChanger(this)"><p>🡰 Previous</p></button>
+			<button class="arrow-button previous-button" onclick="labelGraphChanger(this)"><p>Next 🡲</p></button>
 		</div>
 		<p>As not all genres have enough representative samples, we decided to only keep the top seven.
 			As this can cause problems when training a neural network, it was necessary</p>
@@ -267,7 +269,7 @@
 	</div>
 </div>
 
-<script src="Javascript/graph_search.js"></script>
+<script src="Javascript/graph_changer.js"></script>
 <script src="Javascript/navbar.js"></script>
 
 </body>
