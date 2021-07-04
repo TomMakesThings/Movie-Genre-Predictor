@@ -1,7 +1,7 @@
 <div align="center">
   <h1>IMDb Movie Genre Predictor</h1>
-  <p><img src="https://github.com/TomMakesThings/Movie-Genre-Predictor/blob/gh-pages/Assets/Readme_Assets/Clapper.png" width="100"></p>
-  <p><b>Project by TomMakesThings, rogerchenrc and laviniafr</b></p>
+  <a href="https://tommakesthings.github.io/Movie-Genre-Predictor/"><img src="https://github.com/TomMakesThings/Movie-Genre-Predictor/blob/gh-pages/Assets/Readme_Assets/Clapper.png" width="100"></a>
+  <p><b>Project by <a href="https://github.com/TomMakesThings">TomMakesThings</a>, <a href="https://github.com/rogerchenrc">rogerchenrc</a> and <a href="https://github.com/laviniafr">laviniafr</a></b></p>
 </div>
 
 <p align="center" href="https://tommakesthings.github.io/Movie-Genre-Predictor/"><img src="https://github.com/TomMakesThings/Movie-Genre-Predictor/blob/gh-pages/Assets/Images/Site-Demo.gif"></p>
