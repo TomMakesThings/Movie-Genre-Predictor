@@ -177,6 +177,11 @@
   display: block;
 }
 
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+  #header-center {
+    display: none;
+}
+
 @media screen and (max-width: 750px) {
   #header-top, #header-center, .header-right {
     width: 100%;

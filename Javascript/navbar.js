@@ -12,16 +12,17 @@ window.addEventListener('resize', scrollFunction);
 /* Adjust the header when scrolling down */
 function scrollFunction() {
   all_content = document.getElementsByClassName('header');
+  visible_header = document.getElementById('visible-header');
   var position = "absolute";
   var top = "0px";
   if (window.innerWidth <= 750) {
-    if (document.body.scrollTop > 130 || document.documentElement.scrollTop > 130) {
+    if (document.body.scrollTop > visible_header.offsetTop || document.documentElement.scrollTop > visible_header.offsetTop) {
       position = "fixed";
       top = "-130px";
     }
   }
   else {
-    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    if (document.body.scrollTop > visible_header.offsetTop || document.documentElement.scrollTop > visible_header.offsetTop) {
       position = "fixed";
       top = "-80px";
     }
