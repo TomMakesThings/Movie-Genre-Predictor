@@ -177,12 +177,7 @@
   display: block;
 }
 
-@media screen and (min-width: 750px) and (max-width: 1200px) {
-  #header-center {
-    display: none;
-}
-
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1200px) {
   #header-top, #header-center, .header-right {
     width: 100%;
     display: flex;
@@ -196,10 +191,14 @@
   }
 
   .header-right a {
-    font-size: 2.2vw;
+    font-size: min(2.2vw, 18px);
   }
 
   .nav-dropdown-content a {
     font-size: min(2.6vw, 14px);
+  }
+
+  #header-tom a {
+    font-size: min(4vw, 25px);
   }
 }

@@ -15,7 +15,7 @@ function scrollFunction() {
   visible_header = document.getElementById('visible-header');
   var position = "absolute";
   var top = "0px";
-  if (window.innerWidth <= 750) {
+  if (window.innerWidth <= 1200) {
     if (document.body.scrollTop > visible_header.offsetTop || document.documentElement.scrollTop > visible_header.offsetTop) {
       position = "fixed";
       top = "-130px";
