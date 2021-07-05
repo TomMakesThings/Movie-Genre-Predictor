@@ -201,4 +201,8 @@
   #header-tom a {
     font-size: min(4vw, 25px);
   }
+
+  /* #hint {
+    font-size: min(2.5vw, 14px);
+  } */
 }
