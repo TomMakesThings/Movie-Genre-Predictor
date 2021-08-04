@@ -95,13 +95,14 @@
 			</div>
 		</div>
 		<div class="graph-arrows">
-			<button class="arrow-button next-button" onclick="labelGraphChanger(this)"><p>🡰 Previous</p></button>
-			<button class="arrow-button previous-button" onclick="labelGraphChanger(this)"><p>Next 🡲</p></button>
+			<button class="arrow-button previous-button" onclick="labelGraphChanger(this)"><p>⮜ Previous</p></button>
+			<button class="arrow-button next-button" onclick="labelGraphChanger(this)"><p>Next ⮞</p></button>
 		</div>
-		<p>As not all genres have enough representative samples, we initially decided to only keep the most common seven.
-			Then we
-			As this can cause problems when training a neural network, it was necessary</p>
-		<div class="pies">
+		<p>As not all genres have enough representative samples, we initially decided to only keep the most common seven (although later extended to 12).
+			After stripping the uncommon labels and dropping samples that no longer belonged to least one genre, we then evened up the label distributions through sampling.
+			This is because an unbalanced label distribution can lead to bias when training a neural network.
+		</p>
+		<div class="pies centered">
 			<div class="pie">
 				<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
 			</div>
@@ -113,23 +114,36 @@
 		<br style="clear: both;">
 		<br>
 
-		<p>rherh</p>
-
-		<br>
-
-		<p>As each film has between one and three genres, we decided to perform multi-label classification.
-			This is when the classifer is able to make multiple predictions rather than just one for each sample.
+		<p>Each film has between one and three genres allowing us to perform multi-label classification.
+			Unlike multi-class classification, this is when the classifer is able to make multiple predictions at once rather than just one for each sample.
 		</p>
+		<p>To encode the labels,
+		</p>
+
+		<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
 
 		<br>
 
 		<h2>Analysing the Movie Descriptions</h2>
-		<h3>ScatterText</h3>
-		<div class="graph scattertext">
-			<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+		<p>We explored the contents of the descriptions
+		</p>
+
+		<div>
+			<div id="scattertext-horror" class="graph scattertext">
+				<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+			</div>
+			<div id="scattertext-romance" class="graph scattertext" style="display: none;">
+				<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+			</div>
+			<div align="center">
+				<p><img id="frequency-distribution" src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%; display: none;"></p>
+				<p><img id="bigrams" src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
+				<p><img id="trigrams" src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
+			</div>
 		</div>
-		<div class="graph scattertext">
-			<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+		<div class="graph-arrows">
+			<button class="arrow-button previous-button" onclick="descriptionGraphChanger(this)"><p>⮜ Previous</p></button>
+			<button class="arrow-button next-button" onclick="descriptionGraphChanger(this)"><p>Next ⮞</p></button>
 		</div>
 
 	</div>
@@ -143,10 +157,25 @@
 		<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
 
 		<h2>Pipeline</h2>
-		<h2>Code<h2>
-		<div class="notebook">
-			<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
-		</div>
+		<p>Before training a new classifier, the dataset is sampled and split into training and testing sets.
+			The pipeline is then created, and the steps determined by calling custom transformer classes.
+		</p>
+
+		<h2>Code</h2>
+
+		<details>
+    	<summary>Testing and Development</summary>
+			<div class="notebook">
+				<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
+			</div>
+		</details>
+
+		<details>
+			<summary>Pipeline</summary>
+			<div class="notebook">
+				<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
+			</div>
+		</details>
 
 	</div>
 

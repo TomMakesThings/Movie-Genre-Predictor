@@ -4,10 +4,14 @@
   display: block;
 }
 
+.multihot {
+  max-width: 500px;
+}
+
 .dataset {
   max-width: 600px;
 }
 
 .label-distributions {
-  
+
 }

@@ -33,11 +33,11 @@ function scrollFunction() {
   }
 }
 
-/* Remove the hash from the URL when the page is reloaded to prevent page jumps */
-function anchorLinks() {
-  if (location.hash != '') {
-      window.history.replaceState('', document.title, location.href.replace(/#.*$/, ''));
-  }
-}
-
-anchorLinks();
+// /* Remove the hash from the URL when the page is reloaded to prevent page jumps */
+// function anchorLinks() {
+//   if (location.hash != '') {
+//       window.history.replaceState('', document.title, location.href.replace(/#.*$/, ''));
+//   }
+// }
+//
+// anchorLinks();
