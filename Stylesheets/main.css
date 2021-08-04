@@ -37,22 +37,22 @@ body {
   font-family: Century Gothic;
 }
 
-h1, h2, h3, summary {
+h1, h2, h3, .h1, .h2, .h3 {
   font-family: budmo;
   font-weight: bold;
 }
 
-h1 {
+h1, .h1 {
   font-size: 25px;
   color: var(--grey);
 }
 
-h2 {
+h2, .h2 {
   font-size: 20px;
   color: blue;
 }
 
-h3, summary {
+h3, .h3 {
   font-size: 18px;
 }
 
@@ -90,6 +90,10 @@ video {
   width: 100%;
   max-width: 900px;
   max-height: 600px;
+}
+
+summary:hover {
+  cursor: pointer;
 }
 
 /* Custom scrollbar */

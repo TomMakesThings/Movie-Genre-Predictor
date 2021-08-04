@@ -69,82 +69,100 @@
 	<div>
 		<a name="data" class="anchor"></a>
 		<h1>Data</h1>
-		<h2>The Dataset</h2>
-		<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
-			This contains 84,983 samples providing a sufficient number to train a robust classifier.
-			Although each film has many attributes, such as year of release and director, we only required the original title, description and list of genres to use as training labels.
-			Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
-			This lead to 2,115 samples being dropped with 83,740 remaining.
-		</p>
-		<p><img class="dataset centered" src="Assets/Images/Dataset.png"></p>
+
+		<details open>
+    	<summary class="h2">The Dataset</summary>
+			<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
+				This contains 84,983 samples providing a sufficient number to train a robust classifier.
+				Although each film has many attributes, such as year of release and director, we only required the original title, description and list of genres to use as training labels.
+				Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
+				This lead to 2,115 samples being dropped with 83,740 remaining.
+			</p>
+			<p><img class="dataset centered" src="Assets/Images/Dataset.png"></p>
+		</details>
 
 		<br>
 
-		<h2>Analysing the Labels</h2>
-		<p>All films have between one and three genres, each of which can be used as a label during classification.
-			After analysing all samples, it was discovered that there were 25 unique values.
-			However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
-		</p>
-		<div>
-			<div class="pie" id="label-pie-raw" style="float: none; width: 100%; margin-bottom: -40px; margin-top: -70px; margin-left: 15px;">
-				<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+		<details>
+			<summary class="h2">Analysing the Labels</summary>
+			<p>All films have between one and three genres, each of which can be used as a label during classification.
+				After analysing all samples, it was discovered that there were 25 unique values.
+				However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
+			</p>
+			<div>
+				<div align="center">
+					<p><img id="movies-per-genre" src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%;"></p>
+					<p><img id="genres-per-movie" src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+				</div>
 			</div>
-			<div align="center">
-				<p><img id="movies-per-genre" src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%; display: none;"></p>
-				<p><img id="genres-per-movie" src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+			<div class="graph-arrows">
+				<button class="arrow-button previous-button label-image" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+				<button class="arrow-button next-button label-image" onclick="graphChanger(this)"><p>Next ⮞</p></button>
 			</div>
-		</div>
-		<div class="graph-arrows">
-			<button class="arrow-button previous-button label-pie" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
-			<button class="arrow-button next-button label-pie" onclick="graphChanger(this)"><p>Next ⮞</p></button>
-		</div>
-		<p>As not all genres have enough representative samples, we initially decided to only keep the most common seven (although later extended to 12).
-			After stripping the uncommon labels and dropping samples that no longer belonged to least one genre, we then evened up the label distributions through sampling.
-			This is because an unbalanced label distribution can lead to bias when training a neural network.
-		</p>
-		<div class="pies centered">
-			<div class="pie">
-				<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
-			</div>
-			<div class="pie">
-				<iframe src="Assets/Graphs/Label_Distribution_Processed.html" class="graph-html"></iframe>
-			</div>
-		</div>
+			<p>As not all genres have enough representative samples, we initially decided to only keep the most common seven (although later extended to 12).
+				After stripping the uncommon labels and dropping samples that no longer belonged to least one genre, we then evened up the label distributions through sampling.
+				This is because an unbalanced label distribution can lead to bias when training a neural network.
+			</p>
 
-		<br style="clear: both;">
-		<br>
+			<div>
+				<div class="pie" id="label-pie-raw">
+					<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+				</div>
+				<div class="pie" id="label-pie-reduced" style="display: none;">
+					<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
+				</div>
+				<div class="pie" id="label-pie-even" style="display: none;">
+					<iframe src="Assets/Graphs/Label_Distribution_Processed.html" class="graph-html"></iframe>
+				</div>
+			</div>
+			<div class="graph-arrows">
+				<button class="arrow-button previous-button label-pie" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+				<button class="arrow-button next-button label-pie" onclick="graphChanger(this)"><p>Next ⮞</p></button>
+			</div>
 
-		<p>Each film has between one and three genres allowing us to perform multi-label classification.
-			Unlike multi-class classification, this is when the classifer is able to make multiple predictions at once rather than just one for each sample.
-		</p>
-		<p>To encode the labels,
-		</p>
-
-		<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
+			<br style="clear: both;">
+		</details>
 
 		<br>
 
-		<h2>Analysing the Movie Descriptions</h2>
-		<p>We explored the contents of the descriptions
-		</p>
+		<details>
+			<summary class="h2">Analysing the Descriptions</summary>
+			<p>We used various methods to inspect the movie description text including: finding words that are representative of each genre,
+				locating common stop words (e.g. a, the, for) as well as words consistently used across all descriptions (e.g. young, man) that
+				are common across all genres and discovering the most frequent bigrams and trigrams.
+			</p>
 
-		<div>
-			<div id="scattertext-horror" class="graph scattertext">
-				<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+			<div>
+				<div id="scattertext-horror" class="graph scattertext">
+					<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+				</div>
+				<div id="scattertext-romance" class="graph scattertext" style="display: none;">
+					<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+				</div>
+				<div align="center">
+					<p><img id="frequency-distribution" src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%; display: none;"></p>
+					<p><img id="bigrams" src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
+					<p><img id="trigrams" src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
+				</div>
 			</div>
-			<div id="scattertext-romance" class="graph scattertext" style="display: none;">
-				<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+			<div class="graph-arrows">
+				<button class="arrow-button previous-button desc-graphs" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+				<button class="arrow-button next-button desc-graphs" onclick="graphChanger(this)"><p>Next ⮞</p></button>
 			</div>
-			<div align="center">
-				<p><img id="frequency-distribution" src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%; display: none;"></p>
-				<p><img id="bigrams" src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
-				<p><img id="trigrams" src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
-			</div>
-		</div>
-		<div class="graph-arrows">
-			<button class="arrow-button previous-button desc-graphs" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
-			<button class="arrow-button next-button desc-graphs" onclick="graphChanger(this)"><p>Next ⮞</p></button>
-		</div>
+		</details>
+
+		<br>
+
+		<details open>
+			<summary class="h2">Processing</summary>
+			<p>Each film has between one and three genres allowing us to perform multi-label classification.
+				Unlike multi-class classification, this is when the classifer is able to make multiple predictions at once rather than just one for each sample.
+			</p>
+			<p>To encode the labels,
+			</p>
+
+			<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
+		</details>
 
 	</div>
 
@@ -164,14 +182,14 @@
 		<h2>Code</h2>
 
 		<details>
-    	<summary>Testing and Development</summary>
+    	<summary class="h3">Testing and Development</summary>
 			<div class="notebook">
 				<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
 			</div>
 		</details>
 
 		<details>
-			<summary>Pipeline</summary>
+			<summary class="h3">Pipeline</summary>
 			<div class="notebook">
 				<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
 			</div>

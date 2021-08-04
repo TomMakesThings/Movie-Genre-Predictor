@@ -18,18 +18,14 @@
   margin-top: -50px;
 }
 
-.pies {
-  display: block;
-}
-
 .pie {
   overflow: hidden;
   height: 500px;
-  margin: -50px -80px -80px -50px;
-  width: 50%;
+  width: 100%;
+  margin: -70px -80px -40px -15px;
   min-width: 400px;
-  float: left;
   transform: scale(0.8);
+  float: none;
 }
 
 @media screen and (max-width: 1300px) and (min-width: 840px) {

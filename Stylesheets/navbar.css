@@ -177,7 +177,7 @@
   display: block;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) and (min-width: 600px) {
   #header-top, #header-center, .header-right {
     width: 100%;
     display: flex;
@@ -201,8 +201,36 @@
   #header-tom a {
     font-size: min(4vw, 25px);
   }
+}
 
-  /* #hint {
-    font-size: min(2.5vw, 14px);
-  } */
+@media screen and (max-width: 600px) {
+  #header-top, #header-center, .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #header-center a {
+    font-size: 26px;
+    font-size: min(5vw, 30px);
+  }
+
+  .header-right {
+    display: block;
+    text-align: center;
+  }
+
+  .header-right a {
+    font-size: 10px;
+    display: block;
+  }
+
+  .nav-dropdown-content a {
+    font-size: min(2.6vw, 14px);
+  }
+
+  #header-tom a {
+    font-size: min(4vw, 25px);
+  }
 }
