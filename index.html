@@ -158,23 +158,23 @@
 					<div class="graph scattertext">
 						<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
 					</div>
-					<figcaption>Figure 4a: Scattertext graph of word frequencies for romance film descriptions</figcaption>
+					<figcaption>Figure 4b: Scattertext graph of word frequencies for romance film descriptions</figcaption>
 					<br>
 				</figure>
 				<div align="center">
 					<figure class="centered" id="frequency-distribution" style="display: none;">
 						<p><img src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%;"></p>
-						<figcaption>Figure 4b: Most common words across all film descriptions after stop word removal</figcaption>
+						<figcaption>Figure 4c: Most common words across all film descriptions after stop word removal</figcaption>
 						<br>
 					</figure>
 					<figure class="centered" id="bigrams" style="display: none;">
 						<p><img src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%;"></p>
-						<figcaption>Figure 4c: Most common bigrams after stop word removal</figcaption>
+						<figcaption>Figure 4d: Most common bigrams after stop word removal</figcaption>
 						<br>
 					</figure>
 					<figure class="centered" id="trigrams" style="display: none;">
 						<p><img src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%;"></p>
-						<figcaption>Figure 4d: Most common trigrams after stop word removal</figcaption>
+						<figcaption>Figure 4e: Most common trigrams after stop word removal</figcaption>
 						<br>
 					</figure>
 				</div>
@@ -188,7 +188,7 @@
 		<br>
 
 		<details>
-			<summary class="h2">Label Encoding</summary>
+			<summary class="h2">Label Encoding and Text Processing</summary>
 			<p>Each film has between one and three genres allowing us to perform multi-label classification.
 				Unlike multi-class, where only one output is given, multi-label is when multiple predictions can be made at once.
 				To represent the multiple combinations of labels in a way that the classifier can understand, we used multi-hot encoding, i.e. a binary representation, where 1 signifies that a description belongs to a genre and 0 means that it does not.
@@ -197,17 +197,20 @@
 				<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
 				<figcaption>Figure 5: Multi-hot label encoding of the genres</figcaption>
 			</figure>
-		</details>
 
-		<br>
+			<br>
 
-		<details open>
-			<summary class="h2">Text Processing</summary>
-			<p>Each
-			</p>
+			<p>Before a film description is given as input to the classifier, the text is processed in the following ways:</p>
+			<ul>
+				<li>Punctuation and bad characters are removed</li>
+				<li>Accented characters are converted to non-accented form, for example “Léon” → “Leon”</li>
+				<li>Stop words are removed with the NLTK stop word list</li>
+				<li>Lemmatization is applied to convert words into a form compatible with GloVe word embeddings</li>
+			</ul>
+
 			<figure class="centered">
 				<p><img class="descriptions-processed centered" src="Assets/Images/Description-Processing.png"></p>
-				<figcaption>Figure 6: Multi-hot label encoding of the genres</figcaption>
+				<figcaption>Figure 6: Processing the film descriptions before and after</figcaption>
 			</figure>
 		</details>
 
@@ -221,21 +224,22 @@
 		<details open>
 			<summary class="h2">Testing and Development</summary>
 			<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
-			<details open>
+			<details>
 				<summary class="h3">Code</summary>
 				<div class="notebook">
 					<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
 				</div>
-				<br>
 			</details>
 		</details>
+
+		<br>
 
 		<details open>
 			<summary class="h2">Pipeline</summary>
 			<p>Before training a new classifier, the dataset is sampled and split into training and testing sets.
 				The pipeline is then created, and the steps determined by calling custom transformer classes.
 			</p>
-			<details open>
+			<details>
 				<summary class="h3">Code</summary>
 				<div class="notebook">
 					<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
@@ -270,6 +274,8 @@
 			</div>
 		</details>
 
+		<br>
+
 		<details>
 			<summary class="h2">Latent Semantic Analysis (LSA)</summary>
 			<p>Si</p>
@@ -285,10 +291,14 @@
 			</div>
 		</details>
 
-		<h2>Topic Modelling Code<h2>
-		<div class="notebook">
-			<iframe src="Notebooks/LDiA-and-LSA-Topic-Modelling.html" class="notebook-html"></iframe>
-		</div>
+		<br>
+
+		<details>
+			<summary class="h2">Topic Modelling Code</summary>
+			<div class="notebook">
+				<iframe src="Notebooks/LDiA-and-LSA-Topic-Modelling.html" class="notebook-html"></iframe>
+			</div>
+		</details>
 
 	</div>
 
