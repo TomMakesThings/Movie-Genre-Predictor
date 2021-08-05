@@ -46,6 +46,7 @@
 		<a href="#classifier" class="navtext">Classifier</a>
 		<a href="#topicmodelling" class="navtext">Topic Modelling</a>
 		<a href="#code" class="navtext">Running the Code</a>
+		<a href="#webapp" class="navtext">Web App</a>
 		<a href="#contributions" class="navtext">Contributions</a>
 	</div>
 </div>
@@ -54,7 +55,7 @@
 	<div>
 		<a name="about" class="anchor"></a>
   	<h1>About</h1>
-		<p>This site explains a natural language processing (NLP) group project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
+		<p>This site documents a natural language processing (NLP) group project done in collaboration with <a href="https://github.com/rogerchenrc" target="_blank">rogerchenrc</a> and <a href="https://github.com/laviniafr" target="_blank">laviniafr</a>.
 			In this we tested different NLP techniques and model architectures to create a CI/CD pipeline to train and deploy a multi-label classifier.
 			The classifier was trained on dataset of movie descriptions to predict the top fitting genre(s) with 12 possible values including: Drama, Comedy, Action, Crime, Thriller, Romance, Horror, Adventure, Mystery, Family, Fantasy and Sci-Fi.
 		 	The state of the best trained model was then saved to file and deployed on a custom built web server as demonstrated in the video below:
@@ -228,12 +229,10 @@
 	<div>
 		<a name="classifier" class="anchor"></a>
 		<h1>Classifier</h1>
-		<p>To select the best model architecture to deploy, we each focused on different architectures, across the group covering: CNN, LSTM, transformers, SVM and One-vs-Rest classifiers.
+		<p>To select the best model to deploy, we each focused on different architectures, across the group covering: CNN, LSTM, transformers, SVM and One-vs-Rest classifiers.
 			We then decided upon the bidirectional LSTM because it had a reasonably good initial performance and unlike some of the other models it is compatible with GloVe word embeddings.
 			Through optimization, we determined the best parameters for this model were: 120 hidden layers, 70% dropout, sigmoid activation function and a batch normalization layer.
-		</p>
-		<p>The model was then integrated into a pipeline to simplify the process of training a new model trained, saving its state and automatically deploying it to our web application.
-
+			The model was then integrated into a pipeline to simplify the process of training a new model trained, saving its state and automatically deploying it to our web application.
 		</p>
 		<div>
 			<figure class="centered" id="model-diagram">
@@ -273,33 +272,45 @@
 	<div>
 		<a name="topicmodelling" class="anchor"></a>
 		<h1>Topic Modelling</h1>
-		<p>As an alternative approach to our classification task, the team also experimented with the unsupervised topic modelling approaches Latent Dirichlet Allocation and Latent Semantic Analysis.
-			Unfortunately, we found the topics (i.e. grouping of films) uncovered by these algorithms did not align with the film's genres and so they were not used when constructing our final classifier.
+		<p>An alternative approach to classification is unsupervised topic modelling approaches such as Latent Dirichlet Allocation and Latent Semantic Analysis.
+			However, as the topics (i.e. grouping of films) uncovered by these algorithms do not align with the film's genres, they were not used to construct our final classifier.
 		</p>
 
 		<br>
 
 		<details>
 			<summary class="h2">Latent Dirichlet Allocation (LDiA)</summary>
-			<figure class="centered">
+			<p>LDiA (commonly called LDA) was run on all samples to assign words into topics based on how often they occur together in a film description.
+				As the number of topics increased, so did coherence score, i.e. the semantic similarity between high scoring words in a topic.
+			<figure class="centered" id="ldia-gensim">
 				<div class="graph">
 					<iframe src="Assets/Graphs/Gensim_LDiA_7_Topics.html" class="graph-html"></iframe>
 				</div>
-				<figcaption>Figure 8a: Similarities and difference between topics, along with their most relevent terms</figcaption>
+				<figcaption>Figure 8a: Gensim LDiA graph of similarities and difference between topics, along with their most relevent terms</figcaption>
+				<br>
 			</figure>
-			<figure class="centered">
+			<figure class="centered" id="ldia-tsne7" style="display: none;">
 				<div class="graph">
 					<iframe src="Assets/Graphs/tSNE_LDiA_7_Topics.html" class="graph-html"></iframe>
 				</div>
-				<figcaption>Figure 8a: Similarities and difference between topics, along with their most relevent terms</figcaption>
+				<figcaption>Figure 8b: t-SNE graph of LDiA with 7 topics and coherence score of 0.192</figcaption>
+				<br>
 			</figure>
-
-			<p>In </p>
-
-			<p><img src="Assets/Images/LDiA_Coherence.png" class="coherence-graph centered"></p>
-
-			<div class="graph">
-				<iframe src="Assets/Graphs/tSNE_LDiA_47_Topics.html" class="graph-html"></iframe>
+			<figure class="centered" id="ldia-coherence" style="display: none;">
+				<p><img src="Assets/Images/LDiA_Coherence.png" class="coherence-graph centered"></p>
+				<figcaption>Figure 8c: Coherence score increasing with number of topics</figcaption>
+				<br>
+			</figure>
+			<figure class="centered" id="ldia-tsne47" style="display: none;">
+				<div class="graph">
+					<iframe src="Assets/Graphs/tSNE_LDiA_47_Topics.html" class="graph-html"></iframe>
+				</div>
+				<figcaption>Figure 8d: t-SNE graph of LDiA with 47 topics and coherence score of 0.231</figcaption>
+				<br>
+			</figure>
+			<div class="graph-arrows">
+				<button class="arrow-button previous-button ldia-graphs" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+				<button class="arrow-button next-button ldia-graphs" onclick="graphChanger(this)"><p>Next ⮞</p></button>
 			</div>
 		</details>
 
@@ -307,16 +318,30 @@
 
 		<details>
 			<summary class="h2">Latent Semantic Analysis (LSA)</summary>
-			<p>Si</p>
-
-			<div class="graph">
-				<iframe src="Assets/Graphs/tSNE_LSA_7_Topics.html" class="graph-html"></iframe>
-			</div>
-
-			<p><img src="Assets/Images/LSA_Coherence.png" class="coherence-graph centered"></p>
-
-			<div class="graph">
-				<iframe src="Assets/Graphs/tSNE_LSA_2_Topics.html" class="graph-html"></iframe>
+			<p>Compared to LDiA, LSA produces topics that are more spread apart in the semantic vector space.
+				In addition, coherence score did not improve when the number of topics was increased.</p>
+			<figure class="centered" id="lsa-tsne7">
+				<div class="graph">
+					<iframe src="Assets/Graphs/tSNE_LSA_7_Topics.html" class="graph-html"></iframe>
+				</div>
+				<figcaption>Figure 9a: t-SNE graph of LDiA with 7 topics and coherence score of 0.221</figcaption>
+				<br>
+			</figure>
+			<figure class="centered" id="lsa-coherence" style="display: none;">
+				<p><img src="Assets/Images/LSA_Coherence.png" class="coherence-graph centered"></p>
+				<figcaption>Figure 9b: Coherence score against increasing number of topics</figcaption>
+				<br>
+			</figure>
+			<figure class="centered" id="lsa-tsne2" style="display: none;">
+				<div class="graph">
+					<iframe src="Assets/Graphs/tSNE_LSA_2_Topics.html" class="graph-html"></iframe>
+				</div>
+				<figcaption>Figure 9c: t-SNE graph of LDiA with 2 topics and coherence score of 0.310</figcaption>
+				<br>
+			</figure>
+			<div class="graph-arrows">
+				<button class="arrow-button previous-button lsa-graphs" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+				<button class="arrow-button next-button lsa-graphs" onclick="graphChanger(this)"><p>Next ⮞</p></button>
 			</div>
 		</details>
 
@@ -334,37 +359,80 @@
 	<br>
 
 	<div>
+		<a name="webapp" class="anchor"></a>
+		<h1>Web Application</h1>
+		<p>For the web application, we decided to use the Flask framework.
+			As a result, most the application is written in Python, apart from the front-end HTML and CSS.
+			To restore the state of the trained LSTM, the model weights are loaded from a PyTorch file.
+			The text pre-processor class is also loaded from a pickle file so that a description inputted by a user is processed the same way as when the model was trained.
+		</p>
+
+		<figure class="centered">
+			<p><img src="Assets/Images/Web-Server-Hosting.png" class="centered" style="width: 100%; max-width: 800px;"></p>
+			<figcaption>Figure 10: Structure of the web application</figcaption>
+			<br>
+		</figure>
+
+		<details open>
+			<summary class="h2">Endpoint Functional Testing</summary>
+			<p>Web application unit testing was performed in main.py.
+				Functional testing was run using pytest in test_input.py:
+				Testing GET/POST requests
+				Testing status code of root page and result page by built-in assertion method
+				All functional tests passed
+			</p>
+		</details>
+
+	</div>
+
+	<br>
+
+	<div>
 		<a name="code" class="anchor"></a>
 		<h1>Running the Code</h1>
 		<p>The full code has been uploaded to <a href="https://github.com/TomMakesThings/Movie-Genre-Predictor" target="_blank">GitHub</a>.
 			To download the repository, <a href="https://github.com/TomMakesThings/Movie-Genre-Predictor/archive/refs/heads/main.zip">click here.</a>
 		</p>
-		<p>To ensure all team members could execute the code during development, it was created using a <a href="https://www.anaconda.com/products/individual" target="_blank">conda environment</a>.
-			This environment has been saved as a YAML file, environment.yml, and is included in the repository.
-			To recreate this environment, open the Anaconda prompt and enter the command below, where environment.yml is the file path of the enviroment file.
-		</p>
-		<p><a class="code">conda env create -f environment.yml</a></p>
+
+		<details open>
+			<summary class="h2">Conda Environment</summary>
+			<p>To ensure all team members could execute the code during development, it was created using a <a href="https://www.anaconda.com/products/individual" target="_blank">conda environment</a>.
+				This environment has been saved as a YAML file, environment.yml, and is included in the repository.
+				To recreate this environment, open the Anaconda prompt and enter the command below, where environment.yml is the file path of the enviroment file.
+			</p>
+			<p><a class="code">conda env create -f environment.yml</a></p>
+		</details>
 
 		<br>
 
-		<h2>Web application</h2>
-		<p>To run the classifier web application:</p>
-		<ol>
-			<li><a class="code">conda activate MoviePredictor</a></li>
-			<li>Navigate to <a class="code">Web_App/flaskr</a></li>
-			<li>Run command <a class="code">python main.py</a></li>
-		</ol>
+		<details open>
+			<summary class="h2">Web Application</summary>
+			<p>To run the classifier web application:</p>
+			<ol>
+				<li><a class="code">conda activate MoviePredictor</a></li>
+				<li>Navigate to <a class="code">Web_App/flaskr</a></li>
+				<li>Run command <a class="code">python main.py</a></li>
+			</ol>
+
+			<br>
+
+			<video controls>
+				<source src="Assets/Videos/Site-Launch.mov" type="video/mp4">
+					Your browser does not support the video tag.
+			</video>
+		</details>
 
 		<br>
 
-		<video controls>
-			<source src="Assets/Videos/Site-Launch.mov" type="video/mp4">
-				Your browser does not support the video tag.
-		</video>
-
-		<br>
-
-		<h2>Jupyter notebooks</h2>
+		<details open>
+			<summary class="h2">Jupyter Notebooks</summary>
+			<p>To run the jupyter notebook(s):</p>
+			<ol>
+				<li><a class="code">conda activate MoviePredictor</a></li>
+				<li>Run command <a class="code">jupyter notebook</a></li>
+				<li>Upload the notebook</li>
+			</ol>
+		</details>
 
 	</div>
 
