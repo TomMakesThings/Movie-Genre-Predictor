@@ -9,6 +9,8 @@
 	<!-- Website icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="Assets/Icon/favicon.ico">
 
+	<title>IMDb Movie Genre Predictor</title>
+
 	<!-- Links to the CSS stylesheets -->
 	<link rel="stylesheet" href="Stylesheets\main.css">
 	<link rel="stylesheet" href="Stylesheets\navbar.css">
@@ -226,34 +228,42 @@
 	<div>
 		<a name="classifier" class="anchor"></a>
 		<h1>Classifier</h1>
-		<p>To select the best model architecture to deploy, we each focused on a different architecture, across the group covering: CNN, LSTM, transformers, SVM and One-vs-Rest classifiers.
-			LSTM and transformer worked best with word embeddings so were compared further.
+		<p>To select the best model architecture to deploy, we each focused on different architectures, across the group covering: CNN, LSTM, transformers, SVM and One-vs-Rest classifiers.
+			We then decided upon the bidirectional LSTM because it had a reasonably good initial performance and unlike some of the other models it is compatible with GloVe word embeddings.
+			Through optimization, we determined the best parameters for this model were: 120 hidden layers, 70% dropout, sigmoid activation function and a batch normalization layer.
 		</p>
-		<details open>
-			<summary class="h2">Testing and Development</summary>
-			<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
-			<details>
-				<summary class="h3">Code</summary>
-				<div class="notebook">
-					<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
-				</div>
-			</details>
-		</details>
+		<p>The model was then integrated into a pipeline to simplify the process of training a new model trained, saving its state and automatically deploying it to our web application.
+
+		</p>
+		<div>
+			<figure class="centered" id="model-diagram">
+				<p><img class="centered" id="lstm-diagram" src="Assets/Images/Model-Architecture.png"></p>
+				<figcaption>Figure 7a: Classifier architecture diagram</figcaption>
+				<br>
+			</figure>
+			<figure class="centered" id="model-matrix" style="display: none;">
+				<p><img class="centered" src="Assets/Images/Confusion-Matrix.png" style="max-width: 700px; width: 100%;"></p>
+				<figcaption>Figure 7b: Confusion matrices of a trained classifier with 40.1% test accuracy</figcaption>
+				<br>
+			</figure>
+			<figure class="centered" id="model-pie" style="display: none;">
+				<p><img class="centered" src="Assets/Images/Trained-Labels-Pie.png" style="max-width: 500px; width: 100%;"></p>
+				<figcaption>Figure 7c: Pie chart of the best trained model's label distribution</figcaption>
+				<br>
+			</figure>
+		</div>
+		<div class="graph-arrows">
+			<button class="arrow-button previous-button model-graphs" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
+			<button class="arrow-button next-button model-graphs" onclick="graphChanger(this)"><p>Next ⮞</p></button>
+		</div>
 
 		<br>
 
-		<details open>
-			<summary class="h2">Pipeline</summary>
-			<p>Before training a new classifier, the dataset is sampled and split into training and testing sets.
-				The pipeline is then created, and the steps determined by calling custom transformer classes.
-			</p>
-			<details>
-				<summary class="h3">Code</summary>
-				<div class="notebook">
-					<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
-				</div>
-				<br>
-			</details>
+		<details>
+			<summary class="h2">Pipeline Code</summary>
+			<div class="notebook">
+				<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
+			</div>
 		</details>
 
 	</div>
@@ -263,6 +273,12 @@
 	<div>
 		<a name="topicmodelling" class="anchor"></a>
 		<h1>Topic Modelling</h1>
+		<p>As an alternative approach to our classification task, the team also experimented with the unsupervised topic modelling approaches Latent Dirichlet Allocation and Latent Semantic Analysis.
+			Unfortunately, we found the topics (i.e. grouping of films) uncovered by these algorithms did not align with the film's genres and so they were not used when constructing our final classifier.
+		</p>
+
+		<br>
+
 		<details>
 			<summary class="h2">Latent Dirichlet Allocation (LDiA)</summary>
 			<div class="graph">

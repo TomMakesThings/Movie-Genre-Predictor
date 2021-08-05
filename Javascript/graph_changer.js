@@ -7,6 +7,9 @@ var pie_graph_id = ["label-pie-raw", "label-pie-reduced", "label-pie-even"];
 var desc_graph_count = 0;
 var desc_graph_id = ["scattertext-horror", "scattertext-romance", "frequency-distribution", "bigrams", "trigrams"];
 
+var model_graph_count = 0;
+var model_graph_id = ["model-diagram", "model-matrix", "model-pie"];
+
 function graphChanger(element) {
   // Check which graphs to change
   if (element.classList.contains("label-image")) {
@@ -17,9 +20,13 @@ function graphChanger(element) {
     graph_count = pie_graph_count
     graph_id = pie_graph_id
   }
-  else {
+  else if (element.classList.contains("desc-graphs")) {
     graph_count = desc_graph_count
     graph_id = desc_graph_id
+  }
+  else {
+    graph_count = model_graph_count
+    graph_id = model_graph_id
   }
 
   var current_display = document.getElementById(graph_id[graph_count]);
@@ -47,9 +54,13 @@ function graphChanger(element) {
     pie_graph_count = graph_count
     pie_graph_id = graph_id
   }
-  else {
+  else if (element.classList.contains("desc-graphs")) {
     desc_graph_count = graph_count
     desc_graph_id = graph_id
+  }
+  else {
+    model_graph_count = graph_count
+    model_graph_id = graph_id
   }
 
   // Hide the current graph and display the next
