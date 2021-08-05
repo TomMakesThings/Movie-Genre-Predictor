@@ -113,7 +113,7 @@ figcaption {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-image: linear-gradient(to bottom, white, grey);
   border-radius: 5px;
 }
 
