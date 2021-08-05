@@ -44,9 +44,9 @@
 		<a href="#about" class="navtext">About</a>
 		<a href="#data" class="navtext">Data</a>
 		<a href="#classifier" class="navtext">Classifier</a>
+		<a href="#webapp" class="navtext">Web App</a>
 		<a href="#topicmodelling" class="navtext">Topic Modelling</a>
 		<a href="#code" class="navtext">Running the Code</a>
-		<a href="#webapp" class="navtext">Web App</a>
 		<a href="#contributions" class="navtext">Contributions</a>
 	</div>
 </div>
@@ -269,6 +269,48 @@
 
 	<br>
 
+
+		<div>
+			<a name="webapp" class="anchor"></a>
+			<h1>Web Application</h1>
+			<p>For the web application, we decided to use the Flask framework.
+				As a result, most the application is written in Python, apart from the front-end HTML and CSS.
+				To restore the state of the trained LSTM, the model weights are loaded from a PyTorch file.
+				The text pre-processor class is also loaded from a pickle file so that a description inputted by a user is processed the same way as when the model was trained.
+			</p>
+
+			<figure class="centered">
+				<p><img src="Assets/Images/Web-Server-Hosting.png" class="centered" style="width: 100%; max-width: 800px;"></p>
+				<figcaption>Figure 10: Structure of the web application</figcaption>
+				<br>
+			</figure>
+
+			<br>
+
+			<details open>
+				<summary class="h2">Endpoint Functional Testing</summary>
+				<p>Web application unit testing was performed in main.py.
+					Functional testing was run using pytest in test_input.py:
+					Testing GET/POST requests
+					Testing status code of root page and result page by built-in assertion method
+					All functional tests passed
+				</p>
+			</details>
+
+			<br>
+
+			<details open>
+				<summary class="h2">Input and Prediction Monitoring</summary>
+				<p>When a user input is given, the text is saved to a log file NLPWEB.log along with a time-stamp.
+					The model’s response time is recorded as well as the predicted genres and percentage confidence.
+					The logger also documents the HTTP method and whether the server sent the prediction to the user.
+				</p>
+			</details>
+
+		</div>
+
+	<br>
+
 	<div>
 		<a name="topicmodelling" class="anchor"></a>
 		<h1>Topic Modelling</h1>
@@ -352,35 +394,6 @@
 			<div class="notebook">
 				<iframe src="Notebooks/LDiA-and-LSA-Topic-Modelling.html" class="notebook-html"></iframe>
 			</div>
-		</details>
-
-	</div>
-
-	<br>
-
-	<div>
-		<a name="webapp" class="anchor"></a>
-		<h1>Web Application</h1>
-		<p>For the web application, we decided to use the Flask framework.
-			As a result, most the application is written in Python, apart from the front-end HTML and CSS.
-			To restore the state of the trained LSTM, the model weights are loaded from a PyTorch file.
-			The text pre-processor class is also loaded from a pickle file so that a description inputted by a user is processed the same way as when the model was trained.
-		</p>
-
-		<figure class="centered">
-			<p><img src="Assets/Images/Web-Server-Hosting.png" class="centered" style="width: 100%; max-width: 800px;"></p>
-			<figcaption>Figure 10: Structure of the web application</figcaption>
-			<br>
-		</figure>
-
-		<details open>
-			<summary class="h2">Endpoint Functional Testing</summary>
-			<p>Web application unit testing was performed in main.py.
-				Functional testing was run using pytest in test_input.py:
-				Testing GET/POST requests
-				Testing status code of root page and result page by built-in assertion method
-				All functional tests passed
-			</p>
 		</details>
 
 	</div>
