@@ -69,30 +69,37 @@
 	<div>
 		<a name="data" class="anchor"></a>
 		<h1>Data</h1>
-
-		<details open>
-    	<summary class="h2">The Dataset</summary>
-			<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
-				This contains 84,983 samples providing a sufficient number to train a robust classifier.
-				Although each film has many attributes, such as year of release and director, we only required the original title, description and list of genres to use as training labels.
-				Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
-				This lead to 2,115 samples being dropped with 83,740 remaining.
-			</p>
+		<p>We decided to use the <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">IMDb movies extensive dataset</a> from Kaggle.
+			This contains 84,983 samples providing a sufficient number to train a robust classifier.
+			Although each film has many attributes, such as year of release and director, we only required the original title, description and list of genres to use as training labels.
+			Some pre-processing was therefore required to remove samples missing this information and to remove unnecessary attributes.
+			This lead to 2,115 samples being dropped with 83,740 remaining.
+		</p>
+		<figure class="dataset centered">
 			<p><img class="dataset centered" src="Assets/Images/Dataset.png"></p>
-		</details>
+			<figcaption>Figure 1: Random samples from the IMDb movies extensive dataset</figcaption>
+		</figure>
 
 		<br>
 
 		<details>
-			<summary class="h2">Analysing the Labels</summary>
+			<summary class="h2">Analysing the Labels and Descriptions</summary>
 			<p>All films have between one and three genres, each of which can be used as a label during classification.
 				After analysing all samples, it was discovered that there were 25 unique values.
 				However, they were not evenly distributed with 26.7% of samples belonging to Drama and eight genres with less than 1%.
 			</p>
 			<div>
 				<div align="center">
-					<p><img id="movies-per-genre" src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%;"></p>
-					<p><img id="genres-per-movie" src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%; display: none;"></p>
+					<figure class="centered" id="movies-per-genre">
+						<p><img src="Assets/Images/Movies-Per-Genre.png" style="max-width: 900px; width: 100%;"></p>
+						<figcaption>Figure 2a: Graph showing the number of samples belonging to each genre</figcaption>
+						<br>
+					</figure>
+					<figure class="centered" id="genres-per-movie" style="display: none;">
+						<p><img id="genres-per-movie" src="Assets/Images/Genres-Per-Movie.png" style="max-width: 450px; width: 100%;"></p>
+						<figcaption>Figure 2b: Graph showing how many samples have one, two or three genres</figcaption>
+						<br>
+					</figure>
 				</div>
 			</div>
 			<div class="graph-arrows">
@@ -105,15 +112,27 @@
 			</p>
 
 			<div>
-				<div class="pie" id="label-pie-raw">
-					<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
-				</div>
-				<div class="pie" id="label-pie-reduced" style="display: none;">
-					<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
-				</div>
-				<div class="pie" id="label-pie-even" style="display: none;">
-					<iframe src="Assets/Graphs/Label_Distribution_Processed.html" class="graph-html"></iframe>
-				</div>
+				<figure class="centered" id="label-pie-raw">
+					<div class="pie">
+						<iframe src="Assets/Graphs/Label_Distribution_Raw.html" class="graph-html"></iframe>
+					</div>
+					<figcaption>Figure 3a: Pie chart of label distribution across all samples</figcaption>
+					<br>
+				</figure>
+				<figure class="centered" id="label-pie-reduced" style="display: none;">
+					<div class="pie">
+						<iframe src="Assets/Graphs/Label_Distribution_Unbalanced.html" class="graph-html"></iframe>
+					</div>
+					<figcaption>Figure 3b: Pie chart of label distribution for samples belonging to top seven genres</figcaption>
+					<br>
+				</figure>
+				<figure class="centered" id="label-pie-even" style="display: none;">
+					<div class="pie">
+						<iframe src="Assets/Graphs/Label_Distribution_Processed.html" class="graph-html"></iframe>
+					</div>
+					<figcaption>Figure 3c: Pie chart of evened out label distribution for top seven genres</figcaption>
+					<br>
+				</figure>
 			</div>
 			<div class="graph-arrows">
 				<button class="arrow-button previous-button label-pie" onclick="graphChanger(this)"><p>⮜ Previous</p></button>
@@ -121,28 +140,43 @@
 			</div>
 
 			<br style="clear: both;">
-		</details>
 
-		<br>
-
-		<details>
-			<summary class="h2">Analysing the Descriptions</summary>
 			<p>We used various methods to inspect the movie description text including: finding words that are representative of each genre,
 				locating common stop words (e.g. a, the, for) as well as words consistently used across all descriptions (e.g. young, man) that
 				are common across all genres and discovering the most frequent bigrams and trigrams.
 			</p>
 
 			<div>
-				<div id="scattertext-horror" class="graph scattertext">
-					<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
-				</div>
-				<div id="scattertext-romance" class="graph scattertext" style="display: none;">
-					<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
-				</div>
+				<figure class="centered" id="scattertext-horror">
+					<div class="graph scattertext">
+						<iframe src="Assets/Graphs/Scattertext_Horror.html" class="graph-html"></iframe>
+					</div>
+					<figcaption>Figure 4a: Scattertext graph of word frequencies for horror film descriptions</figcaption>
+					<br>
+				</figure>
+				<figure class="centered" id="scattertext-romance" style="display: none;">
+					<div class="graph scattertext">
+						<iframe src="Assets/Graphs/Scattertext_Romance.html" class="graph-html"></iframe>
+					</div>
+					<figcaption>Figure 4a: Scattertext graph of word frequencies for romance film descriptions</figcaption>
+					<br>
+				</figure>
 				<div align="center">
-					<p><img id="frequency-distribution" src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%; display: none;"></p>
-					<p><img id="bigrams" src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
-					<p><img id="trigrams" src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%; display: none;"></p>
+					<figure class="centered" id="frequency-distribution" style="display: none;">
+						<p><img src="Assets\Images\Frequency-Distribution.png" style="max-width: 650px; width: 100%;"></p>
+						<figcaption>Figure 4b: Most common words across all film descriptions after stop word removal</figcaption>
+						<br>
+					</figure>
+					<figure class="centered" id="bigrams" style="display: none;">
+						<p><img src="Assets\Images\Bigrams.png" style="max-width: 800px; width: 100%;"></p>
+						<figcaption>Figure 4c: Most common bigrams after stop word removal</figcaption>
+						<br>
+					</figure>
+					<figure class="centered" id="trigrams" style="display: none;">
+						<p><img src="Assets\Images\Trigrams.png" style="max-width: 800px; width: 100%;"></p>
+						<figcaption>Figure 4d: Most common trigrams after stop word removal</figcaption>
+						<br>
+					</figure>
 				</div>
 			</div>
 			<div class="graph-arrows">
@@ -153,15 +187,28 @@
 
 		<br>
 
-		<details open>
-			<summary class="h2">Processing</summary>
+		<details>
+			<summary class="h2">Label Encoding</summary>
 			<p>Each film has between one and three genres allowing us to perform multi-label classification.
-				Unlike multi-class classification, this is when the classifer is able to make multiple predictions at once rather than just one for each sample.
+				Unlike multi-class, where only one output is given, multi-label is when multiple predictions can be made at once.
+				To represent the multiple combinations of labels in a way that the classifier can understand, we used multi-hot encoding, i.e. a binary representation, where 1 signifies that a description belongs to a genre and 0 means that it does not.
 			</p>
-			<p>To encode the labels,
-			</p>
+			<figure class="centered">
+				<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
+				<figcaption>Figure 5: Multi-hot label encoding of the genres</figcaption>
+			</figure>
+		</details>
 
-			<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
+		<br>
+
+		<details open>
+			<summary class="h2">Text Processing</summary>
+			<p>Each
+			</p>
+			<figure class="centered">
+				<p><img class="descriptions-processed centered" src="Assets/Images/Description-Processing.png"></p>
+				<figcaption>Figure 6: Multi-hot label encoding of the genres</figcaption>
+			</figure>
 		</details>
 
 	</div>
@@ -171,28 +218,30 @@
 	<div>
 		<a name="classifier" class="anchor"></a>
 		<h1>Classifier</h1>
-		<h2>Testing and Development</h2>
-		<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
-
-		<h2>Pipeline</h2>
-		<p>Before training a new classifier, the dataset is sampled and split into training and testing sets.
-			The pipeline is then created, and the steps determined by calling custom transformer classes.
-		</p>
-
-		<h2>Code</h2>
-
-		<details>
-    	<summary class="h3">Testing and Development</summary>
-			<div class="notebook">
-				<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
-			</div>
+		<details open>
+			<summary class="h2">Testing and Development</summary>
+			<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
+			<details open>
+				<summary class="h3">Code</summary>
+				<div class="notebook">
+					<iframe src="Notebooks/LSTM-IMDb-Film-Genre-Predictor.html" class="notebook-html"></iframe>
+				</div>
+				<br>
+			</details>
 		</details>
 
-		<details>
-			<summary class="h3">Pipeline</summary>
-			<div class="notebook">
-				<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
-			</div>
+		<details open>
+			<summary class="h2">Pipeline</summary>
+			<p>Before training a new classifier, the dataset is sampled and split into training and testing sets.
+				The pipeline is then created, and the steps determined by calling custom transformer classes.
+			</p>
+			<details open>
+				<summary class="h3">Code</summary>
+				<div class="notebook">
+					<iframe src="Notebooks/IMDb-Genre-Predictor-Pipeline.html" class="notebook-html"></iframe>
+				</div>
+				<br>
+			</details>
 		</details>
 
 	</div>
@@ -202,39 +251,39 @@
 	<div>
 		<a name="topicmodelling" class="anchor"></a>
 		<h1>Topic Modelling</h1>
-		<a name="genes" class="anchor"></a>
-		<h2>Latent Dirichlet Allocation (LDiA)</h2>
-		<p>In </p>
+		<details>
+			<summary class="h2">Latent Dirichlet Allocation (LDiA)</summary>
+			<div class="graph">
+				<iframe src="Assets/Graphs/Gensim_LDiA_7_Topics.html" class="graph-html"></iframe>
+			</div>
 
-		<div class="graph">
-			<iframe src="Assets/Graphs/Gensim_LDiA_7_Topics.html" class="graph-html"></iframe>
-		</div>
+			<p>In </p>
 
-		<p>In </p>
+			<div class="graph">
+				<iframe src="Assets/Graphs/tSNE_LDiA_7_Topics.html" class="graph-html"></iframe>
+			</div>
 
-		<div class="graph">
-			<iframe src="Assets/Graphs/tSNE_LDiA_7_Topics.html" class="graph-html"></iframe>
-		</div>
+			<p><img src="Assets/Images/LDiA_Coherence.png" class="coherence-graph centered"></p>
 
-		<p><img src="Assets/Images/LDiA_Coherence.png" class="coherence-graph centered"></p>
+			<div class="graph">
+				<iframe src="Assets/Graphs/tSNE_LDiA_47_Topics.html" class="graph-html"></iframe>
+			</div>
+		</details>
 
-		<div class="graph">
-			<iframe src="Assets/Graphs/tSNE_LDiA_47_Topics.html" class="graph-html"></iframe>
-		</div>
+		<details>
+			<summary class="h2">Latent Semantic Analysis (LSA)</summary>
+			<p>Si</p>
 
-		<a name="scrnaseq" class="anchor"></a>
-		<h2>Latent Semantic Analysis</h2>
-		<p>Si</p>
+			<div class="graph">
+				<iframe src="Assets/Graphs/tSNE_LSA_7_Topics.html" class="graph-html"></iframe>
+			</div>
 
-		<div class="graph">
-			<iframe src="Assets/Graphs/tSNE_LSA_7_Topics.html" class="graph-html"></iframe>
-		</div>
+			<p><img src="Assets/Images/LSA_Coherence.png" class="coherence-graph centered"></p>
 
-		<p><img src="Assets/Images/LSA_Coherence.png" class="coherence-graph centered"></p>
-
-		<div class="graph">
-			<iframe src="Assets/Graphs/tSNE_LSA_2_Topics.html" class="graph-html"></iframe>
-		</div>
+			<div class="graph">
+				<iframe src="Assets/Graphs/tSNE_LSA_2_Topics.html" class="graph-html"></iframe>
+			</div>
+		</details>
 
 		<h2>Topic Modelling Code<h2>
 		<div class="notebook">

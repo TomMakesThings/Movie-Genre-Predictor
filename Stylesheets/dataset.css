@@ -8,6 +8,10 @@
   max-width: 500px;
 }
 
+.descriptions-processed {
+  max-width: 850px;
+}
+
 .dataset {
   max-width: 600px;
 }

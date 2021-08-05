@@ -96,6 +96,13 @@ summary:hover {
   cursor: pointer;
 }
 
+figcaption {
+  color: grey;
+  font-size: 12px;
+  text-align: center;
+  margin-top: -10px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 15px;
