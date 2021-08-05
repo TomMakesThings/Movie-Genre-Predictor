@@ -190,8 +190,8 @@
 		<details>
 			<summary class="h2">Label Encoding and Text Processing</summary>
 			<p>Each film has between one and three genres allowing us to perform multi-label classification.
-				Unlike multi-class, where only one output is given, multi-label is when multiple predictions can be made at once.
-				To represent the multiple combinations of labels in a way that the classifier can understand, we used multi-hot encoding, i.e. a binary representation, where 1 signifies that a description belongs to a genre and 0 means that it does not.
+				Unlike multi-class, where only one output is given, multi-label allows multiple predictions to be made at once.
+				Therefore to represent the multiple combinations of labels in a way that the classifier can understand, we used multi-hot encoding, i.e. a binary representation, where 1 signifies that a description belongs to a genre and 0 means that it does not.
 			</p>
 			<figure class="centered">
 				<p><img class="multihot centered" src="Assets/Images/Multi-Hot.png"></p>
@@ -200,8 +200,10 @@
 
 			<br>
 
-			<p>Before a film description is given as input to the classifier, the text is processed in the following ways:</p>
+			<p>Before a film description is given as input to the classifier, the text must first be converted to a canonical form.
+				It is therefore processed in the following ways:</p>
 			<ul>
+				<li>The text is tokenised to separate the words within sentences</li>
 				<li>Punctuation and bad characters are removed</li>
 				<li>Accented characters are converted to non-accented form, for example “Léon” → “Leon”</li>
 				<li>Stop words are removed with the NLTK stop word list</li>
@@ -221,6 +223,9 @@
 	<div>
 		<a name="classifier" class="anchor"></a>
 		<h1>Classifier</h1>
+		<p>To select the best model architecture to deploy, we each focused on a different architecture, across the group covering: CNN, LSTM, transformers, SVM and One-vs-Rest classifiers.
+			LSTM and transformer worked best with word embeddings so were compared further.
+		</p>
 		<details open>
 			<summary class="h2">Testing and Development</summary>
 			<p>When given a sample, the model outputs one to three genres with a percentage corresponding to its relevance for each one.</p>
