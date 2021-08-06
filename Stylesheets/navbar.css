@@ -63,8 +63,9 @@
 
 #hint {
   position: absolute;
-  bottom: -22px;
-  left: 85px;
+  margin-top: 1px;
+  left: 0;
+  right: 0;
   display: none;
   color: white;
   font-size: 14px;
