@@ -88,7 +88,7 @@
 
 		<br>
 
-		<details>
+		<details open>
 			<summary class="h2">Analysing the Labels and Descriptions</summary>
 			<p>All films have between one and three genres, each of which can be used as a label during classification.
 				After analysing all samples, it was discovered that there were 25 unique values.
@@ -193,7 +193,7 @@
 
 		<br>
 
-		<details>
+		<details open>
 			<summary class="h2">Label Encoding and Text Processing</summary>
 			<p>Each film has between one and three genres allowing us to perform multi-label classification.
 				Unlike multi-class, where only one output is given, multi-label allows multiple predictions to be made at once.
@@ -274,14 +274,14 @@
 			<a name="webapp" class="anchor"></a>
 			<h1>Web Application</h1>
 			<p>For the web application, we decided to use the Flask framework.
-				As a result, most the application is written in Python, apart from the front-end HTML and CSS.
+				Therefore most of the application is written in Python, apart from the front-end HTML and CSS.
 				To restore the state of the trained LSTM, the model weights are loaded from a PyTorch file.
 				The text pre-processor class is also loaded from a pickle file so that a description inputted by a user is processed the same way as when the model was trained.
 			</p>
 
 			<figure class="centered">
 				<p><img src="Assets/Images/Web-Server-Hosting.png" class="centered" style="width: 100%; max-width: 800px;"></p>
-				<figcaption>Figure 10: Structure of the web application</figcaption>
+				<figcaption>Figure 10: File structure of the web application</figcaption>
 				<br>
 			</figure>
 
@@ -289,12 +289,17 @@
 
 			<details open>
 				<summary class="h2">Endpoint Functional Testing</summary>
-				<p>Web application unit testing was performed in main.py.
-					Functional testing was run using pytest in test_input.py:
-					Testing GET/POST requests
-					Testing status code of root page and result page by built-in assertion method
-					All functional tests passed
+				<p>Web application unit testing are written in main.py.
+					Functional testing was run using pytest in test_input.py to test:
 				</p>
+				<ul>
+					<li>GET/POST requests</li>
+					<li>Status codes of root page and result page by a built-in assertion method</li>
+				<figure class="centered">
+					<p><img src="Assets/Images/Endpoint-Testing.png" class="centered" style="width: 100%; max-width: 700px;"></p>
+					<figcaption>Figure 11: All functional tests passed</figcaption>
+					<br>
+				</figure>
 			</details>
 
 			<br>
@@ -302,9 +307,14 @@
 			<details open>
 				<summary class="h2">Input and Prediction Monitoring</summary>
 				<p>When a user input is given, the text is saved to a log file NLPWEB.log along with a time-stamp.
-					The model’s response time is recorded as well as the predicted genres and percentage confidence.
+					The model's response time is recorded as well as the predicted genres and percentage confidence.
 					The logger also documents the HTTP method and whether the server sent the prediction to the user.
 				</p>
+				<figure class="centered">
+					<p><img src="Assets/Images/Logger.png" class="centered" style="width: 100%; max-width: 900px;"></p>
+					<figcaption>Figure 12: Logger capture</figcaption>
+					<br>
+				</figure>
 			</details>
 
 		</div>
@@ -320,7 +330,7 @@
 
 		<br>
 
-		<details>
+		<details open>
 			<summary class="h2">Latent Dirichlet Allocation (LDiA)</summary>
 			<p>LDiA (commonly called LDA) was run on all samples to assign words into topics based on how often they occur together in a film description.
 				As the number of topics increased, so did coherence score, i.e. the semantic similarity between high scoring words in a topic.
@@ -358,7 +368,7 @@
 
 		<br>
 
-		<details>
+		<details open>
 			<summary class="h2">Latent Semantic Analysis (LSA)</summary>
 			<p>Compared to LDiA, LSA produces topics that are more spread apart in the semantic vector space.
 				In addition, coherence score did not improve when the number of topics was increased.</p>
