@@ -23,8 +23,10 @@ To ensure all team members could execute the code during development, it was cre
 4. Enter `conda env create -f environment.yml`, where environment.yml is the file path of the enviroment file
 
 **To run the classifier:**
+
 5. From the Anaconda prompt, run `python Web_App/flaskr/main.py` to run the web application
 
 **To run the Jupyter notebooks:**
+
 6. From the Anaconda prompt, run `jupyter notebook`
 7. Navigate to the notebook
