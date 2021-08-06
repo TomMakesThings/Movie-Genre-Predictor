@@ -128,9 +128,21 @@ figcaption {
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) and (min-width: 700px) {
   .content {
     margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 700px) and (min-width: 450px) {
+  .content {
+    margin-top: 500px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .content {
+    margin-top: 580px;
   }
 }
 

@@ -15,12 +15,20 @@ function scrollFunction() {
   visible_header = document.getElementById('visible-header');
   var position = "absolute";
   var top = "0px";
-  if (window.innerWidth <= 1300) {
+  if (window.innerWidth <= 1300 && window.innerWidth >= 700) {
     if (document.body.scrollTop > visible_header.offsetTop || document.documentElement.scrollTop > visible_header.offsetTop) {
       position = "fixed";
       top = "-130px";
     }
   }
+  // Smallest screen size
+  else if (window.innerWidth <= 1300) {
+    if (document.body.scrollTop > visible_header.offsetBottom || document.documentElement.scrollTop > visible_header.offsetBottom) {
+      position = "fixed";
+      top = "-130px";
+    }
+  }
+  // largest screen size
   else {
     if (document.body.scrollTop > visible_header.offsetTop || document.documentElement.scrollTop > visible_header.offsetTop) {
       position = "fixed";
