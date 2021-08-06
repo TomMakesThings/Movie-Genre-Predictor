@@ -9,7 +9,7 @@ var lsa_count = 0;
 // Lists of IDs for the order of graphs to display
 var label_id = ["movies-per-genre", "genres-per-movie"];
 var pie_id = ["label-pie-raw", "label-pie-reduced", "label-pie-even"];
-var desc_id = ["scattertext-horror", "scattertext-romance", "frequency-distribution", "bigrams", "trigrams"];
+var desc_id = ["scattertext-horror", "scattertext-romance", "frequency-distribution", "bigrams", "trigrams", "desc-length"];
 var model_id = ["model-diagram", "model-matrix", "model-pie"];
 var ldia_id = ["ldia-gensim", "ldia-tsne7", "ldia-coherence", "ldia-tsne47"];
 var lsa_id = ["lsa-tsne7", "lsa-coherence", "lsa-tsne2"];
