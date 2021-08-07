@@ -5,13 +5,13 @@
 </div>
   
 ---
-<h1 align="center">About</h1>
+<h1 align="center">A̲b̲o̲u̲t̲</h1>
   
 This is a natural language processing (NLP) group project in which we tested different NLP techniques and model architectures to create a CI/CD pipeline to train and deploy a multi-label classifier. The classifier was trained on dataset of movie descriptions to predict the top fitting genre(s) with 12 possible values including: Drama, Comedy, Action, Crime, Thriller, Romance, Horror, Adventure, Mystery, Family, Fantasy and Sci-Fi. The state of the best trained model was then saved to file and deployed on a custom built web server. For more information, see our <a href="https://tommakesthings.github.io/Movie-Genre-Predictor/">GitHub pages site</a>.
   
 <p align="center" href="https://tommakesthings.github.io/Movie-Genre-Predictor/"><img src="https://github.com/TomMakesThings/Movie-Genre-Predictor/blob/gh-pages/Assets/Images/Site-Demo.gif" width="750"></p>
   
-<h1 align="center">Runtime Instructions</h1>
+<h1 align="center">R̲u̲n̲t̲i̲m̲e̲ I̲n̲s̲t̲r̲u̲c̲t̲i̲o̲n̲s̲</h1>
 
 **Conda environment:**
 
