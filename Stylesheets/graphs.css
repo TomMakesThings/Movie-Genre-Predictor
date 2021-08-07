@@ -52,10 +52,17 @@
   border: none;
   text-decoration: none;
   text-align: center;
-  font-size: 18px;
+  font-size: max(12px, min(3vw, 18px));
   font-weight: bold;
   cursor: pointer;
   background-color: transparent;
+}
+
+@media screen and (max-width: 500px) {
+  .arrow-button {
+    margin: 0px;
+    width: 100px;
+  }
 }
 
 .wide-screen-button {
@@ -68,4 +75,5 @@
   text-align: center;
   display: inline-block;
   width: 100%;
+  min-width: 220px;
 }
