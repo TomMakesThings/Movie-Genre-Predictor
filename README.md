@@ -17,7 +17,7 @@ This is a natural language processing (NLP) group project in which we tested dif
 
 To ensure all team members could execute the code during development, it was created using a conda environment. This environment has been saved as a YAML file, environment.yml, and is included in the repository. To recreate this environment:
 
-1. Download the code in the main repository from Code ⮞ Download ZIP
+1. Download the code in the main repository from Code ➤ Download ZIP
 2. Extract the contents of the zip
 3. Open the Anaconda prompt and navigate to the folder of the extracted code, e.g. `cd Downloads/Movie-Genre-Predictor`
 4. Enter `conda env create -f environment.yml`, where environment.yml is the file path of the enviroment file
