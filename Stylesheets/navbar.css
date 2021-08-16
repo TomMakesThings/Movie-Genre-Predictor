@@ -5,12 +5,12 @@
   margin-top: 10px;
 }
 
-.other-profile {
+.header-name {
   margin-left: -20px;
   margin-right: 13px;
 }
 
-.other-profile:hover, .navtext:hover, #header-tom:hover {
+.header-name:hover, .navtext:hover, #header-tom:hover {
   animation: MoveUpDown 1s linear infinite;
 }
 
@@ -46,13 +46,13 @@
   float: left;
   color: white;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 5px;
   text-decoration: none;
   line-height: 50px;
   white-space: nowrap;
 }
 
-#username {
+.header-name {
   font-size: 25px;
   text-align: center;
 }
@@ -68,7 +68,7 @@
   right: 0;
   display: none;
   color: white;
-  font-size: 14px;
+  font-size: min(14px, 1.7vw);
 }
 
 #sitename {
@@ -78,24 +78,22 @@
 #header-top {
   width: 100%;
   background-color: #1f1f1f;
-  display: inline-block;
-}
-
-#header-tom, #header-others {
-  float: left;
-  display: flex;
-}
-
-#name-text {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+#name-text, .header-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 #header-top a {
   float: none;
-  font-size: 22px;
-  font-family: pineapple;
+  font-size: min(22px, 2.1vw);
+  font-family: simpsons;
   vertical-align: middle;
 }
 
@@ -180,14 +178,14 @@
     display: inline-block;
   }
 
-  #header-tom, #header-others {
+  .header-name {
     float: none;
     justify-content: center;
     text-align: center;
     align-items: center;
   }
 
-  #header-others {
+  #header-roger, #header-lavinia {
     margin-left: 50px;
   }
 }

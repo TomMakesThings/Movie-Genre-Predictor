@@ -6,10 +6,9 @@
   --red: #ed1515;
 }
 
-/** Custom fonts **/
 @font-face {
-  font-family: pineapple;
-  src: url('../Assets/Fonts/pineapple/PineappleDemo.ttf');
+  font-family: simpsons;
+  src: url('../Assets/Fonts/simpsonfont/Simpsonfont.otf');
 }
 
 @font-face {
